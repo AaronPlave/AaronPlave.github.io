@@ -1,0 +1,25 @@
+/*Quicksand-Bold*/
+@font-face {
+    font-family:"Quicksand-Bold";
+    src: local("☺"), url("../fonts/quicksand/Quicksand-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family:"Quicksand-BoldItalic";
+    src: local("☺"), url("../fonts/quicksand/Quicksand-BoldItalic.otf") format("opentype");
+}
+@font-face {
+    font-family:"Quicksand_Dash";
+    src: local("☺"), url("../fonts/quicksand/Quicksand_Dash.otf") format("opentype");
+}
+@font-face {
+    font-family:"Quicksand-Italic";
+    src: local("☺"), url("../fonts/quicksand/Quicksand-Italic.otf") format("opentype");
+}
+@font-face {
+    font-family:"Quicksand-Light";
+    src: local("☺"), url("../fonts/quicksand/Quicksand-Light.otf") format("opentype");
+}
+@font-face {
+    font-family:"Quicksand-LightItalic";
+    src: local("☺"), url("../fonts/quicksand/Quicksand-LightItalic.otf") format("opentype");
+}

@@ -1,42 +1,19 @@
-@font-face {
-    font-family:"Quicksand-Bold";
-    src: local("☺"), url("../fonts/quicksand/Quicksand-Bold.otf") format("opentype");
-}
-@font-face {
-    font-family:"Quicksand-BoldItalic";
-    src: local("☺"), url("../fonts/quicksand/Quicksand-BoldItalic.otf") format("opentype");
-}
-@font-face {
-    font-family:"Quicksand_Dash";
-    src: local("☺"), url("../fonts/quicksand/Quicksand_Dash.otf") format("opentype");
-}
-@font-face {
-    font-family:"Quicksand-Italic";
-    src: local("☺"), url("../fonts/quicksand/Quicksand-Italic.otf") format("opentype");
-}
-@font-face {
-    font-family:"Quicksand-Light";
-    src: local("☺"), url("../fonts/quicksand/Quicksand-Light.otf") format("opentype");
-}
-@font-face {
-    font-family:"Quicksand-LightItalic";
-    src: local("☺"), url("../fonts/quicksand/Quicksand-LightItalic.otf") format("opentype");
-}
 body {
     background-image:url('../img/background-2880x1917.JPG');
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-position:right;
     background-size: cover;
+    height: 3000px;
 }
 #nameDiv {
     font-family: Quicksand_Dash;
-    float: right;
+    /*float: right;*/
     color: white;
     font-variant: small-caps;
     font-size:550%;
     margin-top: 3%;
-    padding-right: 5%;
+    display: block;
     /*text-decoration: underline;*/
 }
 #nameSpan {
@@ -45,4 +22,24 @@ body {
     border-bottom-color: rgba(184, 198, 236, 0.44);
     border-width: 10px;
     border-radius: 29px;
+}
+#shortBlurb {
+	color: white;
+	font-family: Quicksand-Light;
+	width: 365px;
+	padding-top: 5%;
+	text-align: justify;
+	font-size: 23px;
+}
+#renameLaterContainer {
+	float: right;
+}
+
+.container {
+	text-align: center;
+	width: 50%;
+}
+
+.container div{
+	display: inline-block;
 }
