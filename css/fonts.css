@@ -23,3 +23,9 @@
     font-family:"Quicksand-LightItalic";
     src: local("☺"), url("../fonts/quicksand/Quicksand-LightItalic.otf") format("opentype");
 }
+
+/*Edmondsans-bold*/
+@font-face {
+    font-family:"Edmondsans-bold";
+    src: local("☺"), url("../fonts/edmondsans/edmondsans-bold-webfont.woff") format("woff");
+}

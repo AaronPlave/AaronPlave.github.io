@@ -1,17 +1,30 @@
 body {
-    background-image:url('../img/background-2880x1917.JPG');
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-position:right;
-    background-size: cover;
-    height: 3000px;
+    margin: 0px;
 }
-#nameDiv {
+.backgroundImage {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    height: 150%;
+    /*maybe set this to document.height?*/
+}
+#firstImage {
+    background-image: url('../img/background-2880x1917.JPG');
+    background-image: url('../img/background-Long.JPG');
+}
+#secondImage {
+    background-image: url('../img/background2-2880x1917.JPG');
+}
+#thirdImage {
+    background-image: url('../img/background3-2880x1917.JPG');
+}
+#nameTitle {
     font-family: Quicksand_Dash;
     /*float: right;*/
     color: white;
     font-variant: small-caps;
-    font-size:550%;
+    font-size: 550%;
     margin-top: 3%;
     display: block;
     /*text-decoration: underline;*/
@@ -19,27 +32,44 @@ body {
 #nameSpan {
     /*CAN ALSO DO THE CURVED THING*/
     border-bottom-style: double;
-    border-bottom-color: rgba(184, 198, 236, 0.44);
+    border-bottom-color: rgba(191, 197, 212, 0.29);
     border-width: 10px;
     border-radius: 29px;
 }
-#shortBlurb {
-	color: white;
-	font-family: Quicksand-Light;
-	width: 365px;
-	padding-top: 5%;
-	text-align: justify;
-	font-size: 23px;
+#introBlurb {
+    color: white;
+    font-family: Quicksand-Light;
+    width: 365px;
+    text-align: justify;
+    font-size: 23px;
 }
-#renameLaterContainer {
-	float: right;
+#introContainer {
+    float: right;
+    text-align: center;
+    width: 50%;
+    margin-top: 190px;
 }
-
-.container {
-	text-align: center;
-	width: 50%;
+#introContainer div {
+    display: inline-block;
 }
-
-.container div{
-	display: inline-block;
+#aboutTitle {
+    font-family: Edmondsans-bold;
+    /*float: right;*/
+    color: white;
+    font-variant: small-caps;
+    font-size: 550%;
+    margin-top: 3%;
+    display: block;
+    /*text-decoration: underline;*/
+}
+#aboutBlurb {
+    color: white;
+    padding: 10px;
+    font-family: Quicksand-Bold;
+    width: 365px;
+    border-radius: 40px;
+    text-align: justify;
+    margin: 15px;
+    font-size: 23px;
+    background-color: black;
 }
