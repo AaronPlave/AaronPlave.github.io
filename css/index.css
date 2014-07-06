@@ -11,7 +11,7 @@ body {
 }
 #firstImage {
     background-image: url('../img/background-2880x1917.JPG');
-    background-image: url('../img/background-Long.JPG');
+    background-image: url('../img/background-Long-1920.JPG');
 }
 #secondImage {
     background-image: url('../img/background2-2880x1917.JPG');
@@ -19,45 +19,77 @@ body {
 #thirdImage {
     background-image: url('../img/background3-2880x1917.JPG');
 }
-#nameTitle {
-    font-family: Quicksand_Dash;
+/*FIRST SECTION CSS*/
+ #titleHolder {
     /*float: right;*/
-    color: white;
     font-variant: small-caps;
-    font-size: 550%;
-    margin-top: 3%;
     display: block;
-    /*text-decoration: underline;*/
+    position: relative;
 }
-#nameSpan {
-    /*CAN ALSO DO THE CURVED THING*/
-    border-bottom-style: double;
-    border-bottom-color: rgba(191, 197, 212, 0.29);
-    border-width: 10px;
-    border-radius: 29px;
-    color: white;
+#introContainer {
+    float: right;
+    text-align: center;
+    width: 50%;
+    margin-top: 20%;
+}
+#introContainer div {
     display: inline-block;
-    margin-top: 51px;
-
 }
-#introBlurb {
+/*TITLE V1, SLANT SHIFT*/
+
+/* #title {
+    font: 8em ‘Display’;
+    font-family: Sullivan-Fill;
+    margin-top: 51px;
+    position: relative;
+    text-shadow:rgba(255, 255, 255, 0.48) 5px 5px;
+}
+#title:before {
+    font-family:Sullivan-Regular;
+    position: relative;
+    color: rgba(255, 255, 255, 1);
+}*/
+
+/*ALT TITLE 2 VERTICAL SHIFT*/
+ #title {
+    font: 8em ‘Display’;
+    font-family: Sullivan-Fill;
+    position: relative;
+    color: rgba(245, 245, 245, 1);
+    text-shadow: rgba(245, 245, 245, 0.6) 0px 15px;
+}
+/*#title:before {
+    font-family:Sullivan-Regular;
+    position: relative;
+    color: rgba(245, 245, 245, 1);
+}*/
+
+/*ALT TITLE STYLE*/
+
+/* #title {
+    font: 8em ‘Display’;
+    font-family: Sullivan-Fill;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 51px;
+    position: relative;
+}
+#title:before {
+    content: attr(text);
+    font-family:Sullivan-Regular;
+    position: absolute;
+    color: rgba(106, 106, 106, 1);
+}*/
+ #introBlurb {
     color: white;
     font-family: Quicksand-Light;
     width: 365px;
     text-align: justify;
     font-size: 23px;
 }
-#introContainer {
-    float: right;
-    text-align: center;
-    width: 50%;
-    margin-top: 190px;
-}
-#introContainer div {
-    display: inline-block;
-}
-#aboutTitle {
-    font-family: Edmondsans;
+/*ABOUT CSS SEPARATE?*/
+ #aboutTitle {
+    font-family: Sullivan-Regular;
+    /*font-family: Edmondsans; */
     text-align: center;
     color: white;
     font-variant: small-caps;
@@ -66,7 +98,7 @@ body {
     display: block;
 }
 #aboutSpan {
-    background: black;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     display: inline-block;
     margin-top: 51px;
@@ -76,16 +108,16 @@ body {
     padding-right: 42px;
     padding-top: 23px;
     padding-bottom: 9px;
-    font-size: 80px;
+    font-size: 161px;
     font-weight: inherit;
 }
 #aboutBlurb {
     color: rgb(72, 72, 72);
-    font-family: Quicksand-Bold;
+    font-family: KlinicSlabMedium;
     width: 365px;
     text-align: justify;
-    margin: 15px;
-    font-size: 23px;
+    margin: -33px;
+    font-size: 29px;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
