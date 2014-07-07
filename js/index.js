@@ -29,7 +29,7 @@ function initialize() {
         // console.log(scrollY, "F")
 
         // Stuff for title illusion O.o 
-        mainTitleAnimate(scrollY);
+        // mainTitleAnimate(scrollY);
     }
 }
 
