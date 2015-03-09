@@ -1,0 +1,46 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Source Sans Pro',sans-serif;*/
+    /*font-family: 'Lato',sans-serif;*/
+    /*font-family: 'Roboto',sans-serif;*/
+    /*font-family: 'Montserrat',sans-serif;*/
+}
+.pure-menu-heading {
+    height: 110px;
+}
+.pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
+    background: none;
+    text-decoration: underline;
+}
+#header-firstname {
+    font-weight: 700;
+    font-size: 1.4em;
+    letter-spacing: 0em;
+    display: inline-block;
+}
+#header-lastname, #header-section {
+    font-weight: 100;
+    margin-top: -25px;
+    letter-spacing: 0em;
+    font-size: 1.4em;
+    display: inline-block;
+}
+#header-divider {
+    padding: 0px 12px 0px;
+    font-size: 1.2em;
+    opacity: 0.3;
+    margin-right: 28px;
+    border-right: 1px solid #000;
+    text-decoration: none;
+    display: inline;
+}
+#content-title {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1em;
+}
+.pullout {
+    font-size: 1.3em;
+    line-height: 0.2em;
+    font-variant: small-caps;
+}
