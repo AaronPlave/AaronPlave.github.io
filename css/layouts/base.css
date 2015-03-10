@@ -48,7 +48,7 @@ body {
     font-weight: 100;
     font-weight: 300;
     color: #4E4E4E;
-    margin: 65px 0px 30px 0;
+    margin: 65px 0px 15px 0;
 }
 .pullout {
     display: inline-block;
@@ -56,19 +56,20 @@ body {
     font-variant: small-caps;
 }
 #pullout-1 {
-    color: #FF2335;
+    color: #69F46A;
+    mix-blend-mode: multiply;
 }
 #pullout-2 {
-    color: #FCCB02;
-    opacity: 0.8;
+    color: #FCE602;
+    mix-blend-mode: multiply;;
 }
 #pullout-3 {
-    color: #B31572;
-    opacity: 0.7;
+    color: #FA4DE4;
+    mix-blend-mode: multiply;
 }
 #pullout-4 {
-    color: blue;
-    opacity: 0.8;
+    color: rgb(14, 197, 229);
+    mix-blend-mode: multiply;
 }
 .content-smallheading {
     font-weight: 500;
@@ -92,6 +93,5 @@ body {
     padding-top: 30px;
     font-weight: 100;
     text-transform: lowercase;
-    letter-spacing: 0.14em;
-    
+    letter-spacing: 0.14em;    
 }
