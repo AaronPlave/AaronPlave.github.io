@@ -62,9 +62,9 @@ The content `<div>` is where all your content goes.
     margin-top: 0;
 }
 .content-subhead {
-    margin: 62px 0 50px 0;
     font-weight: 300;
     color: #4E4E4E;
+    margin: 62px 0 50px 0;
 }
 /*
 The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
@@ -143,6 +143,7 @@ appears on the left side of the page.
     font-size: 110%;
     color: #fff;
     margin: 0;
+    opacity: 0.6;
 }
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 /*
