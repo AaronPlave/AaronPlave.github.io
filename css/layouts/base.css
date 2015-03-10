@@ -48,12 +48,27 @@ body {
     font-weight: 100;
     font-weight: 300;
     color: #4E4E4E;
-    margin: 89px 0px 30px 0;
+    margin: 65px 0px 30px 0;
 }
 .pullout {
-    font-size: 1.3em;
-    line-height: 0.2em;
+    display: inline-block;
+    font-size: 8.6em;
     font-variant: small-caps;
+}
+#pullout-1 {
+    color: #FF2335;
+}
+#pullout-2 {
+    color: #FCCB02;
+    opacity: 0.8;
+}
+#pullout-3 {
+    color: #B31572;
+    opacity: 0.7;
+}
+#pullout-4 {
+    color: blue;
+    opacity: 0.8;
 }
 .content-smallheading {
     font-weight: 500;
@@ -63,4 +78,20 @@ body {
 }
 .content-subtext {
     font-size: 0.85em;
+}
+.content-first {
+    margin-top: 120px;
+    margin-bottom: 40px;
+}
+#about-typedesign {
+    line-height: 0em;
+}
+.home-title {
+    font-size: 1.6em;
+    line-height: 1em;
+    padding-top: 30px;
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0.14em;
+    
 }

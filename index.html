@@ -15,62 +15,58 @@
     <link rel="stylesheet" href="./css/layouts/side-menu.css">
     <!--<![endif]-->
     <link rel="stylesheet" href="./css/layouts/base.css">
+    <script src="js/main.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <script type='text/x-handlebars' data-template-name='application'>
-        <div id="layout">
-            <!-- Menu toggle -->
-            <a id="menuLink" class="menu-link" onclick="toggleMenu(event)">
-                <span></span>
-            </a>
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
 
-            <div id="menu">
-                <div class="pure-menu">
-                    <a class="pure-menu-heading"></a>
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">Company</a>
 
-                    <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a class="pure-menu-link">{{#link-to 'Home'}}Home{{/link-to}}</a>
-                        </li>
-                        <li class="pure-menu-item"><a class="pure-menu-link">{{#link-to 'About'}}About{{/link-to}}</a>
-                        </li>
-                        <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
-                            <a class="pure-menu-link">Experience</a>
-                        </li>
-                        <li class="pure-menu-item"><a class="pure-menu-link">Projects</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="main">
-                <div class="header">
-                    <h1 id="header-firstname">AARON</h1>
-                    <h1 id="header-lastname">PLAVE</h1>
-                    <h1 id="header-divider"></h1>
-                    <h1 id="header-section">ABOUT</h1>
-                </div>
-                <div>{{outlet}}</div>
-            </div>
-    </script>
-
-    <!--BEGIN HOME-->
-    <script type='text/x-handlebars' data-template-name='home'>
-        <div id="main">
-            <div class="content">
-                <h2 id="content-title" class="content-subhead">HOME</h2>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="nav-home">Home</a>
+                    </li>
+                    <li id="nav-about" class="pure-menu-item"><a href="#" class="pure-menu-link" id="nav-about">About</a>
+                    </li>
+                    <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
+                        <a href="#" class="pure-menu-link">Experience</a>
+                    </li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Projects</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </script>
-    <!--END HOME-->
 
-    <!--BEGIN ABOUT-->
-    <script type='text/x-handlebars' data-template-name='about'>
         <div id="main">
-            <div class="content">
-                <h2 id="content-title" class="content-subhead">About Me</h2>
+            <div class="header">
+                <h1 id="header-firstname">AARON</h1>
+                <h1 id="header-lastname">PLAVE</h1>
+                <h1 id="header-divider"></h1>
+                <h1 id="header-section">ABOUT</h1>
+            </div>
+
+            <div class="content" id="page-home">
+                <div class="home-title">Computer Science</div>
+                <div class="home-title">Web Development</div>
+                <div class="home-title">Visual Design</div>
+            </div>
+
+            <div class="content" id="page-about" hidden>
+                <div id="about-typedesign" class="content-first">
+                    <b class="pullout" id="pullout-1">i'm a</b>
+                    <b class="pullout" id="pullout-2">pragmatic</b>
+                    <b class="pullout" id="pullout-3">creator</b>
+                    <b class="pullout" id="pullout-4">at heart</b>
+                </div>
                 <p>
-                    <b class="pullout">i'm a pragmatic creator at heart;</b> I love to create beautiful, useful solutions to problems that I find exciting and compelling through programming and visual design. I've designed and developed numerous websites from front to back. I've written software for biologists, neuroscientists, and climate scientists. I've taken courses in graphic design, user interface, and typography. Most importantly, <i>I've developed an intuition for how to get things done.</i>
+                     I love to create beautiful, useful solutions to problems that I find exciting and compelling through programming and visual design. I've designed and developed numerous websites from front to back. I've written software for biologists, neuroscientists, and climate scientists. I've taken courses in graphic design, user interface, and typography. Most importantly, <i>I've developed an intuition for how to get things done.</i>
                 </p>
 
                 <h2 class="content-subtitle">Education</h2>
@@ -84,11 +80,6 @@
                     <br>
                     <span class="content-subtext">— Took a number of courses including User Interface Design, Computer Graphics, and Mobile Application Development</span>
                 </p>
-                <!--  <div class="pure-g">
-                    <div class="pure-u-1">
-                        <img class="pure-img-responsive" src="img/budapest.JPG" alt="Peyto Lake">
-                    </div>
-                </div> -->
                 <!-- <div class="pure-g">
                     <div class="pure-u-1-4">
                         <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
@@ -108,13 +99,13 @@
                 <p>
                     <b class="content-smallheading">PROGRAMMING</b>
                     <br>
-                    <span class="content-subtext">— Comfortable with Python | Javascript |  SML </span>
+                    <span class="content-subtext">— Comfortable with Python | JavaScript |  Standard ML </span>
                     <br>
                     <span class="content-subtext">— Familiar with Java | C++ | Perl | Objective-C </span>
                     <br>
                     <b class="content-smallheading">WEB TECHNOLOGIES</b>
                     <br>
-                    <span class="content-subtext">— HTML5 | CSS | jQuery | Django | Flask | Node.js | MongoDB | Responsive Design | Phonegap  </span>
+                    <span class="content-subtext">— HTML5 | CSS | jQuery | Django | Flask | Node.js | MongoDB | Responsive Design | PhoneGap  </span>
                     <br>
                     <b class="content-smallheading">GENERAL SKILLS</b>
                     <br>
@@ -123,15 +114,7 @@
                 </p>
             </div>
         </div>
-        </div>
-    </script>
-    <!--END HOME-->
-
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0/ember.min.js"></script>
-    <!--<script src="js/ui.js"></script>-->
-    <script src="js/app.js"></script>
+    </div>
 </body>
 
 </html>
