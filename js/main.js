@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     var supportsMixBlendMode = window.getComputedStyle(document.body).mixBlendMode;
 
+    var headerSection = document.getElementById('header-section');
 
     // Bind menu links
     var pageHome = document.getElementById('page-home'),
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var curr = pageLinks[i][1].split("-")[1];
             if (curr !== target) {
                 pageLinks[i][0].hidden = true;
+                headerSection.innerHTML = target;
             } else {
                 pageLinks[i][0].hidden = false;
             }

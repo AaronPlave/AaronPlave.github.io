@@ -28,6 +28,7 @@ body {
     letter-spacing: 0em;
     font-size: 1.4em;
     display: inline-block;
+    text-transform: uppercase;
 }
 #header-divider {
     padding: 0px 12px 0px;
@@ -61,7 +62,8 @@ body {
 }
 #pullout-2 {
     color: #FCE602;
-    mix-blend-mode: multiply;;
+    mix-blend-mode: multiply;
+    ;
 }
 #pullout-3 {
     color: #FA4DE4;
@@ -87,11 +89,37 @@ body {
 #about-typedesign {
     line-height: 0em;
 }
-.home-title {
+.home-title, .home-title-main {
     font-size: 1.6em;
     line-height: 1em;
     padding-top: 30px;
     font-weight: 100;
     text-transform: lowercase;
-    letter-spacing: 0.14em;    
+    letter-spacing: 0.14em;
+}
+.home-title-main {
+    font-weight: 500;
+    font-size: 11em;
+}
+.main-1 {} .main-2 {
+    margin-left: 133px;
+    margin-top: -58px;
+}
+.main-2::first-letter {
+    color: #FCE602
+}
+.main-3 {
+    margin-left: 273px;
+    margin-top: -87px;
+    color: #FA4DE4;
+}
+.blue {
+    color: rgb(14, 197, 229);
+}
+.content-download {
+    color: rgb(14, 197, 229);
+    font-size: 0.9em;
+    text-decoration: none;
+    border: rgb(14, 197, 229) solid 1px;
+    padding: 1px 5px 2px 5px;
 }
