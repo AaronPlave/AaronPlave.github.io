@@ -33,10 +33,10 @@
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="#home" class="pure-menu-link" id="nav-home">Home</a>
                     </li>
-                    <li id="nav-about" class="pure-menu-item"><a href="#about" class="pure-menu-link" id="nav-about">About</a>
+                    <li class="pure-menu-item"><a href="#about" class="pure-menu-link" id="nav-about">About</a>
                     </li>
                     <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
-                        <a href="#" class="pure-menu-link">Experience</a>
+                        <a href="#experience" class="pure-menu-link" id="nav-experience">Experience</a>
                     </li>
                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">Projects</a>
                     </li>
@@ -54,7 +54,8 @@
 
             <div class="content" id="page-home">
                 <div class="content-first">
-                    <div class="home-title-main main-1">Hi<span class="blue">,</span></div>
+                    <div class="home-title-main main-1">Hi<span class="blue">,</span>
+                    </div>
                     <div class="home-title-main main-2">I am</div>
                     <div class="home-title-main main-3">A</div>
                     <div class="home-title">Computer Scientist</div>
@@ -76,10 +77,8 @@
 
                 <h2 class="content-subtitle">Education</h2>
                 <b class="content-smallheading">Wesleyan University, Middletown CT</b>
-                <br>
                 <span class="content-subtext">— Bachelor of Arts in Computer Science | 3.76 GPA</span>
                 <b class="content-smallheading">Aquincum Institute of Technology, Budapest, Hungary</b>
-                <br>
                 <span class="content-subtext">— Took a number of courses including User Interface Design, Computer Graphics, and Mobile Application Development</span>
                 <!-- <div class="pure-g">
                     <div class="pure-u-1-4">
@@ -99,24 +98,41 @@
                 <h2 class="content-subtitle">Skills</h2>
                 <p>
                     <b class="content-smallheading">PROGRAMMING</b>
-                    <br>
                     <span class="content-subtext">— Comfortable with Python | JavaScript |  Standard ML </span>
-                    <br>
                     <span class="content-subtext">— Familiar with Java | C++ | Perl | Objective-C </span>
-                    <br>
                     <b class="content-smallheading">WEB TECHNOLOGIES</b>
-                    <br>
                     <span class="content-subtext">— HTML5 | CSS | jQuery | Django | Flask | Node.js | MongoDB | Responsive Design | PhoneGap  </span>
-                    <br>
                     <b class="content-smallheading">GENERAL SKILLS</b>
-                    <br>
                     <span class="content-subtext">— Git | SVN | UNIX | Adobe InDesign | Adobe Photoshop | GIMP | myBalsamiq | Typography | Rapid-Prototyping | Some experience with iOS & Android Development</span>
-                    <br>
                 </p>
 
                 <h2 class="content-subtitle">Resume</h2>
                 <a class="content-download" href="img/AaronPlave-Resume.pdf" target="_blank">DOWNLOAD</a>
                 <p>
+            </div>
+        </div>
+        <div class="content" id="page-experience" hidden>
+            <div class="content-first">
+                <span class="experience-title">NASA Goddard Space Flight Center <span class="blue">|</span> Software Development Intern
+                </span>
+                <div class="experience-subtitle">Summer 2014, Greenbelt Maryland</div>
+                <div class="experience-container">
+                    <ul>
+                        <li class="experience-item">Designed, developed, and integrated prototype ESRI-Shape-file-based analysis capabilities for Giovanni—an online earth and climate science data access and analysis portal created and maintained by the GES DISC.</li>
+                        <li class="experience-item">Rapid prototyping using myBalsamiq, worked with Giovanni team and Goddard Scientists to prioritize goals and understand primary use cases.</li>
+                        <li class="experience-item">Created user interfaces for shapefile selection, wrote backend code in Python and Perl to manipulate and analyze geospatial data.</li>
+                        <li class="experience-item"><i>Fell in love with all things space.</i></li>
+                        <li class="experience-item">The capabilities I prototyped have now been publically released. Click <a class="blue" href="http://giovanni.gsfc.nasa.gov/giovanni/#service=AREA_AVG_TIME_SERIES&starttime=2000-01-01T05:00:00Z&endtime=2015-01-31T05:00:59Z&shape=tl_2014_us_state/shp_13&bbox=-124.48200299999999,32.528832,-114.131211,42.009516999999995&data=TRMM_3B43_007_precipitation&variableFacets=dataFieldMeasurement%3APrecipitation%3B" target="_blank">here</a> for the average monthly precipitation rate over California over the past 15 years. Or try <a class="blue" href="http://giovanni.gsfc.nasa.gov/giovanni/#service=INTERACTIVE_MAP&starttime=2000-01-01T00:00:00Z&endtime=2015-01-31T23:59:59Z&shape=countryAreas/shp_161&bbox=68.14422723110235,6.745827090101585,97.36110025831266,35.50132711688222&data=TRMM_3B43_007_precipitation" target="_blank">here</a> for a map visualization of the same dataset over India. I think it's cool and pretty darn useful.
+                </div>
+
+                <span class="experience-title">Mindlab Wesleyan<span class="blue">|</span> Undergraduate Research
+                </span>
+                <div class="experience-subtitle">Fall 2014—Present, Middletown, CT</div>
+                <div class="experience-container">
+                    <ul>
+                        <li class="experience-item">Established a data pipeline between BrainVision EEG software and MaxMSP using Matlab to allow for real-time sonification of EEG signals.</li>
+                </div>
+
             </div>
         </div>
     </div>

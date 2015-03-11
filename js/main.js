@@ -5,12 +5,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // Bind menu links
     var pageHome = document.getElementById('page-home'),
-        pageAbout = document.getElementById('page-about');
-    // navExperience     = document.getElementById('menu'),
+        pageAbout = document.getElementById('page-about'),
+        pageExperience = document.getElementById('page-experience');
     // navProjects     = document.getElementById('menu');
     var allPageLinks = [
         [pageHome, 'page-home'],
-        [pageAbout, 'page-about']
+        [pageAbout, 'page-about'],
+        [pageExperience, 'page-experience']
     ];
 
     function toggleHidden(targetElement, pageLinks) {
@@ -27,9 +28,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     var navHome = document.getElementById('nav-home'),
-        navAbout = document.getElementById('nav-about');
+        navAbout = document.getElementById('nav-about'),
+        navExperience = document.getElementById('nav-experience');
 
-    var allNavLinks = [navHome, navAbout];
+    var allNavLinks = [navHome, navAbout,navExperience];
     for (i = 0; i < allNavLinks.length; i++) {
         allNavLinks[i].onclick = function(e) {
             toggleHidden(e, allPageLinks)
