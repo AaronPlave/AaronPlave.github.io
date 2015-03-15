@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         navAbout = document.getElementById('nav-about'),
         navExperience = document.getElementById('nav-experience');
 
-    var allNavLinks = [navHome, navAbout,navExperience];
+    var allNavLinks = [navHome, navAbout, navExperience];
     for (i = 0; i < allNavLinks.length; i++) {
         allNavLinks[i].onclick = function(e) {
             toggleHidden(e, allPageLinks)
@@ -71,4 +71,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
+
+    // Get list of square divs on home page
+    sqDivs = document.getElementsByClassName("square");
+
+    // Set on click listeners for 3 hats
+
+    // Design
+    // lDesign = document.getElementById("sq-design");
+    // lDesign.onclick = function() {
+    //     for (i=0; i < length(sqDivs); i++) {
+    //         lDesign.style.background = 
+    //     }        
+    // }
+
+
 })

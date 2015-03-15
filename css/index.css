@@ -178,14 +178,27 @@ li {
     margin-bottom: 5px;
 }
 .experience-img {
-    margin-bottom: 60px;
+    margin-bottom: 110px;
     opacity: 0.6;
 }
 .home-title-main.main-2 {
     display: inline-block;
     font-size: 3em;
-    /*font-family: 'Source Sans Pro',sans-serif;*/
-    /*font-family: 'Lato',sans-serif;*/
-    /*font-family: 'Roboto',sans-serif;*/
-    /*font-family: 'Montserrat',sans-serif;*/
+}
+.squares-container {
+    padding-top: 100px;
+}
+.square {
+    background: rgb(14, 197, 229);
+    display: inline-block;
+    margin-top: -3px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    height: 75px;
+    /*border: 1px solid rgb(14, 197, 229);*/
+    width: 75px;
+
 }
