@@ -78,20 +78,79 @@ document.addEventListener("DOMContentLoaded", function(event) {
     colorYellow = "#FCE602";
     colorMagenta = "#FA4DE4";
 
-    themeColors = [colorBlue,colorGreen,colorYellow,colorMagenta];
+    themeColors = [colorBlue, colorGreen, colorYellow, colorMagenta];
 
     // Get list of square divs on home page
     sqDivs = document.getElementsByClassName("square");
+
+    // Default square theme function
+    function setDefault(sqs) {
+        for (i = 0; i < sqs.length; i++) {
+            sqs[i].style.background = colorBlue;
+            sqs[i].style.mixBlendMode = "luminosity";
+        }
+    }
 
     // Set on click listeners for 3 hats
 
     // Design
     lDesign = document.getElementById("sq-design");
-    lDesign.onclick = function() {
-        for (i = 0; i < sqDivs.length; i++) {
-            sqDivs[i].style.background = themeColors[i % 4];
+
+    function setDesign(sqs) {
+        var transform = getRandomTransform();
+        // uniform transform?
+        randTransf = false;
+        if (getRandomInt(0, 2) == 1) {
+            randTransf = true;
+        }
+        console.log("randtransf=",randTransf)
+        for (i = 0; i < sqs.length; i++) {
+            sqs[i].style.background = themeColors[getRandomInt(1, 5)];
+            sqs[i].style.mixBlendMode = "multiply";
+            if (randTransf) {
+                transform = getRandomTransform();
+            }
+            // apply transform
+            sqs[i].style.transform = transform;
         }
     }
 
+    lDesign.onmouseover = function() {
+        setDesign(sqDivs)
+    };
+    lDesign.onmouseout = function() {
+        setDefault(sqDivs)
+    };
 
-})
+
+    // Web developer
+    // Design
+    lWeb = document.getElementById("sq-web");
+
+    function setWeb(sqs) {
+        for (i = 0; i < sqs.length; i++) {
+            sqs[i].style.background = "none";
+            sqs[i].style.border = "";
+            sqs[i].style.mixBlendMode = "multiply";
+        }
+    }
+
+    lWeb.onmouseover = function() {
+        setWeb(sqDivs)
+    };
+    lWeb.onmouseout = function() {
+        setDefault(sqDivs)
+    };
+});
+
+function getRandomFloat(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+function getRandomTransform() {
+    return 'skew(' + getRandomFloat(-45, 45) + 'deg)' +
+                    ' scale(' + getRandomFloat(0.1, 3) + ')';
+}

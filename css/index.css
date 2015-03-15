@@ -114,13 +114,20 @@ li {
 #about-typedesign {
     line-height: 0em;
 }
+.home-title {
+    display: table;
+    cursor: default;
+}
+.home-title:hover {
+    color: red;
+}
 .home-title, .home-title-main {
     font-size: 1.6em;
     line-height: 1em;
     padding-top: 30px;
     font-weight: 100;
     text-transform: lowercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.14em;;
 }
 .home-title-main {
     font-weight: 100;
@@ -187,19 +194,20 @@ li {
 }
 .squares-container {
     padding-top: 100px;
+    line-height: 1.2;
 }
 .square {
-    background: rgb(14, 197, 229);
     display: inline-block;
-    margin-top: -3px;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
     height: 75px;
     /*border: 1px solid rgb(14, 197, 229);*/
     width: 75px;
-    mix-blend-mode: multiply;
-
+    margin: 11px;
+    mix-blend-mode: luminosity;
+    background: rgb(14, 197, 229);
+    box-shadow: -3px 3px 22px rgba(170, 170, 170, 0.93);
 }
