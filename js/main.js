@@ -1,3 +1,5 @@
+var currState;
+
 document.addEventListener("DOMContentLoaded", function(event) {
     var supportsMixBlendMode = window.getComputedStyle(document.body).mixBlendMode;
 
@@ -89,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             sqs[i].style.background = colorBlue;
             sqs[i].style.mixBlendMode = "luminosity";
             sqs[i].style.color = "transparent";
+            sqs[i].style.boxShadow = "-3px 3px 22px rgba(170, 170, 170, 0.93)";
         }
     }
 
@@ -106,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         console.log("randtransf=", randTransf)
         for (i = 0; i < sqs.length; i++) {
-            sqs[i].style.background = themeColors[getRandomInt(0, 4)];
+            sqs[i].style.background = getRandomColor(themeColors);
             if (getRandomInt(0, 3) == 1) {
                 sqs[i].style.mixBlendMode = "screen";
             } else {
@@ -121,9 +124,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     lDesign.onmouseover = function() {
+        currState = "design";
         setDesign(sqDivs)
     };
     lDesign.onmouseout = function() {
+        currState = "";
         setDefault(sqDivs)
     };
 
@@ -133,18 +138,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lWeb = document.getElementById("sq-web");
 
     function setWeb(sqs) {
+        if (currState != "web") return;
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = "none";
+            if (getRandomInt(0, 3) == 1) {
+                sqs[i].innerHTML = getRandomASCII();
+            }
+            sqs[i].style.color = getRandomColor(themeColors);
+            sqs[i].style.boxShadow = "none";
             sqs[i].style.mixBlendMode = "multiply";
-            sqs[i].innerHTML = getRandomASCII();
-            sqs[i].style.color = "red";
         }
+        // recurse after a bit of a time delay
+        setTimeout(function() {
+            if (currState != "web") return;
+            setWeb(sqs)
+        }, 2000);
     }
 
     lWeb.onmouseover = function() {
+        currState = "web";
         setWeb(sqDivs)
     };
     lWeb.onmouseout = function() {
+        currState = "";
         setDefault(sqDivs)
     };
 });
@@ -160,6 +176,11 @@ function getRandomInt(min, max) {
 function getRandomTransform() {
     return 'skew(' + getRandomFloat(-45, 45) + 'deg)' +
         ' scale(' + getRandomFloat(0.1, 3) + ')';
+}
+
+function getRandomColor(colors) {
+    return colors[getRandomInt(0, colors.length)];
+
 }
 
 function getRandomASCII() {
