@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
 
     // Set theme colors
-    colorBlue = "rgb(14, 197, 229)";
+    colorBlue = "#0EC5E5";
     colorGreen = "#69F46A";
     colorYellow = "#FCE602";
     colorMagenta = "#FA4DE4";
@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = colorBlue;
             sqs[i].style.mixBlendMode = "luminosity";
+            sqs[i].style.color = "transparent";
         }
     }
 
@@ -103,10 +104,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (getRandomInt(0, 2) == 1) {
             randTransf = true;
         }
-        console.log("randtransf=",randTransf)
+        console.log("randtransf=", randTransf)
         for (i = 0; i < sqs.length; i++) {
-            sqs[i].style.background = themeColors[getRandomInt(1, 5)];
-            sqs[i].style.mixBlendMode = "multiply";
+            sqs[i].style.background = themeColors[getRandomInt(0, 4)];
+            if (getRandomInt(0, 3) == 1) {
+                sqs[i].style.mixBlendMode = "screen";
+            } else {
+                sqs[i].style.mixBlendMode = "multiply";
+            }
             if (randTransf) {
                 transform = getRandomTransform();
             }
@@ -130,8 +135,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setWeb(sqs) {
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = "none";
-            sqs[i].style.border = "";
             sqs[i].style.mixBlendMode = "multiply";
+            sqs[i].innerHTML = getRandomASCII();
+            sqs[i].style.color = "red";
         }
     }
 
@@ -150,7 +156,19 @@ function getRandomFloat(min, max) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
 function getRandomTransform() {
     return 'skew(' + getRandomFloat(-45, 45) + 'deg)' +
-                    ' scale(' + getRandomFloat(0.1, 3) + ')';
+        ' scale(' + getRandomFloat(0.1, 3) + ')';
+}
+
+function getRandomASCII() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq" +
+        "rstuvwxyz0123456789!@#$%^&*()_+-=/*.,<>?[]{}";
+
+    for (var i = 0; i < 1; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
 }

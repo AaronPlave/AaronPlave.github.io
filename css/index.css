@@ -197,7 +197,6 @@ li {
     line-height: 1.2;
 }
 .square {
-    display: inline-block;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s ease-out;
     -ms-transition: all 1s ease-out;
@@ -209,5 +208,12 @@ li {
     margin: 11px;
     mix-blend-mode: luminosity;
     background: rgb(14, 197, 229);
+    color: transparent;
+    text-align: center;
+    line-height: 5;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1em;
+    border: 0px white solid;
     box-shadow: -3px 3px 22px rgba(170, 170, 170, 0.93);
 }
