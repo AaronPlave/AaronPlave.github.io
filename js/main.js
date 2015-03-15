@@ -72,18 +72,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
         toggleClass(menuLink, active);
     };
 
+    // Set theme colors
+    colorBlue = "rgb(14, 197, 229)";
+    colorGreen = "#69F46A";
+    colorYellow = "#FCE602";
+    colorMagenta = "#FA4DE4";
+
+    themeColors = [colorBlue,colorGreen,colorYellow,colorMagenta];
+
     // Get list of square divs on home page
     sqDivs = document.getElementsByClassName("square");
 
     // Set on click listeners for 3 hats
 
     // Design
-    // lDesign = document.getElementById("sq-design");
-    // lDesign.onclick = function() {
-    //     for (i=0; i < length(sqDivs); i++) {
-    //         lDesign.style.background = 
-    //     }        
-    // }
+    lDesign = document.getElementById("sq-design");
+    lDesign.onclick = function() {
+        for (i = 0; i < sqDivs.length; i++) {
+            sqDivs[i].style.background = themeColors[i % 4];
+        }
+    }
 
 
 })
