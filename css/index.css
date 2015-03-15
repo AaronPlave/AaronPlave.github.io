@@ -24,12 +24,16 @@ li {
     background-clip: padding-box;
     background-color: rgba(69, 192, 214, 0.78);
 }
+.greeting-holder {
+    padding-bottom: 40px;
+    
+}
 .pure-menu-heading {
-    height: 110px;
+    height: 70px;
     background-position: center;
     background-size: 91%;
     background-repeat: no-repeat;
-    background-image: url("../../img/logo.png");
+    background-image: url("../img/logo.png");
 }
 .pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
     background: none;
@@ -101,6 +105,7 @@ li {
 }
 .content-subtext {
     font-size: 0.85em;
+    display: block;
 }
 .content-first {
     margin-top: 120px;
@@ -118,20 +123,21 @@ li {
     letter-spacing: 0.14em;
 }
 .home-title-main {
-    font-weight: 500;
-    font-size: 11em;
+    font-weight: 100;
+    color: rgb(51, 51, 51);
 }
-.main-1 {} .main-2 {
-    margin-left: 133px;
-    margin-top: -58px;
+.main-1 {
+    font-size: 3em;
+    color: rgb(51, 51, 51);
 }
 .main-2::first-letter {
-    color: #FCE602
+    color: rgb(14, 197, 229);
 }
 .main-3 {
-    margin-left: 273px;
-    margin-top: -87px;
     color: #FA4DE4;
+    font-size: 3em;
+    display: inline-block;
+    padding-left: 11px;
 }
 .blue {
     color: rgb(14, 197, 229);
@@ -164,7 +170,8 @@ li {
     position: relative;
     left: -5px;
     font-weight: 100;
-    opacity: 0.7;;
+    opacity: 0.7;
+    ;
 }
 .experience-container > ul li {
     text-indent: -15px;
@@ -173,4 +180,12 @@ li {
 .experience-img {
     margin-bottom: 60px;
     opacity: 0.6;
+}
+.home-title-main.main-2 {
+    display: inline-block;
+    font-size: 3em;
+    /*font-family: 'Source Sans Pro',sans-serif;*/
+    /*font-family: 'Lato',sans-serif;*/
+    /*font-family: 'Roboto',sans-serif;*/
+    /*font-family: 'Montserrat',sans-serif;*/
 }

@@ -95,12 +95,18 @@ appears on the left side of the page.
 #menu a {
     color: #202020;
     border: none;
-    padding: 0.6em 0 0.6em 0.6em;
+    padding: 0;
     text-transform: uppercase;
     letter-spacing: 0.11em;
     font-size: 0.8em;
     font-weight: 300;
     font-size: 0.85em;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1.5em;
+}
+#menu a:hover {
+    border-bottom: 1px rgba(69, 192, 214, 0.78) solid;
 }
 /*
     Remove all background/borders, since we are applying them to #menu.
@@ -116,6 +122,8 @@ appears on the left side of the page.
 
 #menu .pure-menu ul, #menu .pure-menu .menu-item-divided {
     border-top: 1px solid #333;
+    padding-left: 20px;
+    padding-top: 16px;
 }
 /*
         Change color of the anchor links on hover/focus.
