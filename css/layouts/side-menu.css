@@ -86,6 +86,7 @@ appears on the left side of the page.
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     border-right: 1px solid black;
+    background: white;
 }
 /*
     All anchors inside the menu should be styled like this.
