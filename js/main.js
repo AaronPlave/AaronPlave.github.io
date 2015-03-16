@@ -79,10 +79,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     colorGreen = "#69F46A";
     colorYellow = "#FCE602";
     colorMagenta = "#FA4DE4";
-    colorBlack = "black";
+    colorBlack = "#000000";
+    colorWhite = "#fdfcfc";
+    colorRed = "red";
 
-    themeColors = [colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
-    themeNoBlack = [colorBlue, colorGreen, colorYellow, colorMagenta];
+    themeColors = [colorWhite,colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
+    themeNoBlack = [colorWhite,colorBlue, colorGreen, colorYellow, colorMagenta];
+    themeNoWhite = [colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
+    themeBW = [colorWhite,colorBlack];
+    themeBR = [colorRed,colorBlack];
 
     // Get list of square divs on home page
     sqDivs = document.getElementsByClassName("square");
@@ -148,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (getRandomInt(0, 3) == 1) {
                 sqs[i].innerHTML = getRandomASCII();
             }
-            sqs[i].style.color = getRandomColor(themeColors);
+            sqs[i].style.color = getRandomColor(themeNoWhite);
             sqs[i].style.boxShadow = "none";
             sqs[i].style.mixBlendMode = "multiply";
             sqs[i].style.transitionDelay = "0s"
