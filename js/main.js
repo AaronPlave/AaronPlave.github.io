@@ -79,8 +79,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     colorGreen = "#69F46A";
     colorYellow = "#FCE602";
     colorMagenta = "#FA4DE4";
+    colorBlack = "black";
 
-    themeColors = [colorBlue, colorGreen, colorYellow, colorMagenta];
+    themeColors = [colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
+    themeNoBlack = [colorBlue, colorGreen, colorYellow, colorMagenta];
 
     // Get list of square divs on home page
     sqDivs = document.getElementsByClassName("square");
@@ -109,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         console.log("randtransf=", randTransf)
         for (i = 0; i < sqs.length; i++) {
-            sqs[i].style.background = getRandomColor(themeColors);
+            sqs[i].style.background = getRandomColor(themeNoBlack);
+            sqs[i].style.transitionDelay = getRandomFloat(0, 0.7) + "s";
+
             if (getRandomInt(0, 3) == 1) {
                 sqs[i].style.mixBlendMode = "screen";
             } else {
@@ -140,13 +144,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setWeb(sqs) {
         if (currState != "web") return;
         for (i = 0; i < sqs.length; i++) {
-            sqs[i].style.background = "none";
+            sqs[i].style.background = "yellow";
             if (getRandomInt(0, 3) == 1) {
                 sqs[i].innerHTML = getRandomASCII();
             }
             sqs[i].style.color = getRandomColor(themeColors);
             sqs[i].style.boxShadow = "none";
             sqs[i].style.mixBlendMode = "multiply";
+            sqs[i].style.transitionDelay = "0s"
         }
         // recurse after a bit of a time delay
         setTimeout(function() {
