@@ -83,11 +83,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     colorWhite = "#fdfcfc";
     colorRed = "red";
 
-    themeColors = [colorWhite,colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
-    themeNoBlack = [colorWhite,colorBlue, colorGreen, colorYellow, colorMagenta];
+    themeColors = [colorWhite, colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
+    themeNoBlack = [colorWhite, colorBlue, colorGreen, colorYellow, colorMagenta];
     themeNoWhite = [colorBlue, colorGreen, colorYellow, colorMagenta, colorBlack];
-    themeBW = [colorWhite,colorBlack];
-    themeBR = [colorRed,colorBlack];
+    themeBW = [colorWhite, colorBlack];
+    themeBR = [colorRed, colorBlack];
 
     // Get list of square divs on home page
     sqDivs = document.getElementsByClassName("square");
@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (getRandomInt(0, 2) == 1) {
             randTransf = true;
         }
-        console.log("randtransf=", randTransf)
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = getRandomColor(themeNoBlack);
             sqs[i].style.transitionDelay = getRandomFloat(0, 0.7) + "s";
@@ -129,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             // apply transform
             sqs[i].style.transform = transform;
+            // sqs[i].style
         }
     }
 
@@ -149,20 +149,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setWeb(sqs) {
         if (currState != "web") return;
         for (i = 0; i < sqs.length; i++) {
-            sqs[i].style.background = "yellow";
+            var currSq = sqs[i];
+            currSq.style.background = "yellow";
             if (getRandomInt(0, 3) == 1) {
-                sqs[i].innerHTML = getRandomASCII();
+                var delay = getRandomFloat(0, 2);
+                var item = setTimeout(function(el) {
+                    el.innerHTML = getRandomASCII();
+                }, delay, currSq)
             }
-            sqs[i].style.color = getRandomColor(themeNoWhite);
-            sqs[i].style.boxShadow = "none";
-            sqs[i].style.mixBlendMode = "multiply";
-            sqs[i].style.transitionDelay = "0s"
+            currSq.style.color = getRandomColor(themeNoWhite);
+            currSq.style.boxShadow = "none";
+            currSq.style.mixBlendMode = "multiply";
+            currSq.style.transitionDelay = "0s"
         }
         // recurse after a bit of a time delay
         setTimeout(function() {
             if (currState != "web") return;
-            setWeb(sqs)
-        }, 2000);
+            setWeb(sqs);
+        }, 1500);
     }
 
     lWeb.onmouseover = function() {
@@ -170,6 +174,74 @@ document.addEventListener("DOMContentLoaded", function(event) {
         setWeb(sqDivs)
     };
     lWeb.onmouseout = function() {
+        currState = "";
+        setDefault(sqDivs)
+    };
+
+    lComp = document.getElementById("sq-comp");
+
+    function playSnake(sqs) {
+        var cellColor = "rgb(0,95,153)";
+        var targetColor = "rgb(0,45,103)";
+        var speed = 1000 // ms delay between movements
+        // Color grid
+        for (i = 0; i < sqs.length; i++) {
+            currSq = sqs[i]; 
+            currSq.style.mixBlendMode = "multiply";
+            currSq.style.background = cellColor;
+        }
+        // Randomly place a target somewhere in the grid
+        var tCell = getRandomInt(0,sqs.length);
+        sqs[tCell].style.background = "red";
+    }
+
+    function runSearch(sqs) {
+        // Set initial rgb value
+        var dark = {
+            "r": 0,
+            "g": 45,
+            "b": 103
+        };
+        for (i = 0; i < sqs.length; i++) {
+            // Generate randomly scaled values from initial.
+            // wallChance is chance of generating a wall color
+            var wallColor = "red";
+            var wallChance = 0.2;
+            var makeWall = getRandomFloat(0, 1);
+            if (makeWall < wallChance) {
+                resultRGB = wallColor;
+            } else {
+                var randVal = getRandomFloat(0, 3);
+                var randRGB = {
+                    "r": Math.round(Math.min(dark.r * randVal, 255)),
+                    "g": Math.round(Math.min(dark.g * randVal, 255)),
+                    "b": Math.round(Math.min(dark.b * randVal, 255))
+                };
+                var resultRGB = "rgb(" + randRGB.r +
+                    "," + randRGB.g + "," + randRGB.b + ")";
+            }
+
+            var currSq = sqs[i];
+            currSq.style.mixBlendMode = "multiply";
+            currSq.style.background = resultRGB;
+        }
+    }
+
+    function setComp(sqs) {
+        if (currState != "comp") return;
+        var option = getRandomInt(0, 2);
+        if (option == 1) {
+            playSnake(sqs);
+        } else {
+            runSearch(sqs);
+        }
+    }
+
+    lComp.onmouseover = function() {
+        currState = "comp";
+        setComp(sqDivs)
+    };
+    lComp.onmouseout = function() {
         currState = "";
         setDefault(sqDivs)
     };
@@ -190,7 +262,6 @@ function getRandomTransform() {
 
 function getRandomColor(colors) {
     return colors[getRandomInt(0, colors.length)];
-
 }
 
 function getRandomASCII() {

@@ -25,7 +25,8 @@ li {
     background-color: rgba(69, 192, 214, 0.78);
 }
 .greeting-holder {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+    margin-top: -41px;
     
 }
 .pure-menu-heading {
@@ -122,27 +123,28 @@ li {
     color: red;
 }
 .home-title, .home-title-main {
-    font-size: 1.6em;
+    font-size: 1.4em;
     line-height: 1em;
-    padding-top: 30px;
     font-weight: 100;
     text-transform: lowercase;
-    letter-spacing: 0.14em;;
+    letter-spacing: 0.14em;
+    padding-top: 25px;;
 }
 .home-title-main {
     font-weight: 100;
     color: rgb(51, 51, 51);
 }
 .main-1 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: rgb(51, 51, 51);
+    padding-top: 0px;
 }
 .main-2::first-letter {
     color: rgb(14, 197, 229);
 }
 .main-3 {
     color: #FA4DE4;
-    font-size: 3em;
+    font-size: 2.5em;
     display: inline-block;
     padding-left: 11px;
 }
@@ -161,10 +163,21 @@ li {
     font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px rgb(14, 197, 229) solid;
+    background: white;
+    padding: 0px 2px 0px 4px;
 }
 .experience-subtitle {
     font-weight: 100;
     letter-spacing: 0.1em;
+    padding: 0px 2px 0px 4px;
+    background: white;
+    display: inline;
+}
+.experience-holder {
+    background-image: url("../img/experience_nasa.png");
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;;;
 }
 .experience-container {
     margin-bottom: 30px;
@@ -172,29 +185,34 @@ li {
 .experience-container > ul {
     list-style-type: none;
 }
+.experience-container > ul > li > span {
+    background: white;
+    padding: 0px 6px 0px 6px;;
+}  
 .experience-container > ul li:before {
     content: "—";
+    color: white;
     position: relative;
     left: -5px;
     font-weight: 100;
-    opacity: 0.7;
-    ;
 }
 .experience-container > ul li {
     text-indent: -15px;
     margin-bottom: 5px;
+    display: inline-table;
+    line-height: 1.7;
 }
 .experience-img {
-    margin-bottom: 110px;
-    opacity: 0.6;
+    margin-bottom: 140px;
 }
 .home-title-main.main-2 {
     display: inline-block;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 .squares-container {
-    padding-top: 100px;
+    padding-top: 80px;
     line-height: 1em;
+    max-width: 50%;
 }
 .square {
     font-family: inconsolata;
@@ -203,18 +221,18 @@ li {
     -ms-transition: all 1s ease-out;
     -o-transition: all 1s ease-out;
     transition: all 1s ease-out;
-    height: 75px;
+    height: 40px;
     /*border: 1px solid rgb(14, 197, 229);*/
-    width: 75px;
-    margin: 11px;
+    width: 40px;
+    margin: 11px 9px 9px 7px;
     mix-blend-mode: luminosity;
     background: rgb(14, 197, 229);
     color: transparent;
     text-align: center;
-    line-height: 1;
+    line-height: 1.3;
     display: inline-block;
     font-weight: 900;
-    font-size: 4em;
+    font-size: 2em;
     border: 0px white solid;
     box-shadow: -3px 3px 22px rgba(170, 170, 170, 0.93);
 }
