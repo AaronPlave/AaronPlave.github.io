@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = colorBlue;
             sqs[i].style.mixBlendMode = "luminosity";
+            sqs[i].style.transitionDuration = "1s";
             sqs[i].style.color = "transparent";
             sqs[i].style.boxShadow = "-3px 3px 22px rgba(170, 170, 170, 0.93)";
         }
@@ -181,19 +182,125 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lComp = document.getElementById("sq-comp");
 
     function playSnake(sqs) {
-        var cellColor = "rgb(0,95,153)";
-        var targetColor = "rgb(0,45,103)";
-        var speed = 1000 // ms delay between movements
-        // Color grid
-        for (i = 0; i < sqs.length; i++) {
-            currSq = sqs[i]; 
-            currSq.style.mixBlendMode = "multiply";
-            currSq.style.background = cellColor;
+        // Initialization
+        var state = {};
+        state.sqs = sqs;
+        state.rowLen = 6;
+        state.cellColor = "rgb(0,95,153)";
+        state.foodColor = "rgb(0,45,103)";
+        state.snakeColor = "yellow";
+        state.snake = [];
+        state.speed = 1000; // ms delay between movements
+        state.direction = "right"; // snake movement direction
+        state.alive = true;
+
+
+        document.onkeydown = function(evt) {
+            if (evt.keyCode == 37 && state.direction != "right") state.direction = "left";
+            else if (evt.keyCode == 38 && state.direction != "down") state.direction = "up";
+            else if (evt.keyCode == 39 && state.direction != "left") state.direction = "right";
+            else if (evt.keyCode == 40 && state.direction != "up") state.direction = "down";
+
+            console.log("Move", state.direction);
         }
+
+        // Color grid
+        for (i = 0; i < state.sqs.length; i++) {
+            state.currSq = state.sqs[i];
+            state.currSq.style.mixBlendMode = "multiply";
+            state.currSq.style.transitionDuration = "0s";
+            state.currSq.style.background = state.cellColor;
+        }
+
+        // Place the snake in the middle for now
+        var sqsMiddle = state.sqs.length / 2;
+        state.snake = [sqsMiddle + 1, sqsMiddle + 2, sqsMiddle + 3];
+        for (i = 0; i < state.snake.length; i++) {
+            state.sqs[state.snake[i]].style.background = state.snakeColor;
+        }
+
         // Randomly place a target somewhere in the grid
-        var tCell = getRandomInt(0,sqs.length);
-        sqs[tCell].style.background = "red";
+        // not inside the snake
+        var foodCell = getRandomInt(0, state.sqs.length);
+        while (state.snake.indexOf(foodCell) != -1) {
+            var foodCell = getRandomInt(0, state.sqs.length);
+        }
+        state.foodCell = foodCell;
+        state.sqs[state.foodCell].style.background = "red";
+        console.log("INIT STATE", state)
+        snakeLoop(state);
     }
+
+    function snakeLoop(state) {
+        // Play!
+        var state = state;
+        var nIntervId = setInterval(function() {
+            if (currState != "comp") clearInterval(nIntervId);
+            state = snakeRound(state);
+            console.log(state.alive, "Alive?")
+            if (!(state.alive)) {
+                console.log("HE'S DEAD JIM!");
+                clearInterval(nIntervId);
+            }
+        }, 500);
+
+    }
+
+    function snakeRound(state) {
+        // Game round 
+        // Check for snake head outside of grid
+        var head = state.snake[state.snake.length - 1];
+        var newHead;
+
+        if (state.direction === "right") {
+            if ((((head + 1) % state.rowLen)) == 0) {
+                state.alive = false;
+                return state;
+            } else {
+                newHead = head + 1;
+            }
+        } else if (state.direction === "left") {
+            if ((((head + 1) % state.rowLen)) == 1) {
+                state.alive = false;
+                return state;
+            } else {
+                newHead = head - 1;
+            }
+        } else if (state.direction === "up") {
+            if ((head + 1) < state.rowLen) {
+                state.alive = false;
+                return state;
+            } else {
+                newHead = head - state.rowLen;
+            }
+        } else if (state.direction === "down") {
+            if ((head + 1) > state.rowLen * (state.rowLen - 1)) {
+                state.alive = false;
+                return state;
+            } else {
+                newHead = head + state.rowLen;
+            }
+        }
+
+
+
+
+        // Move the snake
+        // Check if snake has consumed the food. If not, move tail.
+        if (head != state.foodCell) {
+            // Color tail in
+            state.sqs[state.snake[0]].style.background = state.cellColor;
+            // Remove tail
+            state.snake = state.snake.splice(1, state.snake.length);
+        }
+        // Add new head
+        state.snake.push(newHead);
+        state.sqs[newHead].style.background = state.snakeColor;
+
+        return state;
+    }
+
+
 
     function runSearch(sqs) {
         // Set initial rgb value
@@ -233,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (option == 1) {
             playSnake(sqs);
         } else {
-            runSearch(sqs);
+            playSnake(sqs);
         }
     }
 
@@ -243,7 +350,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
     lComp.onmouseout = function() {
         currState = "";
-        setDefault(sqDivs)
+        // setDefault(sqDivs)
+        setComp(sqDivs)
     };
 });
 
