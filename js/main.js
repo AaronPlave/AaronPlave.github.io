@@ -188,9 +188,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         state.rowLen = 6;
         state.cellColor = "rgb(0,95,153)";
         state.foodColor = "rgb(0,45,103)";
-        state.snakeColor = "yellow";
+        state.snakeColor = themeColors[3];
         state.snake = [];
-        state.speed = 1000; // ms delay between movements
+        state.speed = 500; // ms delay between movements
         state.direction = "right"; // snake movement direction
         state.alive = true;
 
@@ -219,16 +219,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
             state.sqs[state.snake[i]].style.background = state.snakeColor;
         }
 
+        generateFoodCell(state);
+        snakeLoop(state);
+    }
+
+    function generateFoodCell(state) {
+        // If there's no more room, don't add a food cell.
+        if (state.snake.length >= state.sqs.length){
+            console.log("Win?");
+            return;
+        }
         // Randomly place a target somewhere in the grid
         // not inside the snake
         var foodCell = getRandomInt(0, state.sqs.length);
         while (state.snake.indexOf(foodCell) != -1) {
             var foodCell = getRandomInt(0, state.sqs.length);
         }
+
         state.foodCell = foodCell;
         state.sqs[state.foodCell].style.background = "red";
-        console.log("INIT STATE", state)
-        snakeLoop(state);
     }
 
     function snakeLoop(state) {
@@ -242,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 console.log("HE'S DEAD JIM!");
                 clearInterval(nIntervId);
             }
-        }, 500);
+        }, state.speed);
 
     }
 
@@ -282,9 +291,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         }
 
-
-
-
         // Move the snake
         // Check if snake has consumed the food. If not, move tail.
         if (head != state.foodCell) {
@@ -292,6 +298,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             state.sqs[state.snake[0]].style.background = state.cellColor;
             // Remove tail
             state.snake = state.snake.splice(1, state.snake.length);
+        } else {
+            generateFoodCell(state);
+            state.speed *= 2; 
+
         }
         // Add new head
         state.snake.push(newHead);
