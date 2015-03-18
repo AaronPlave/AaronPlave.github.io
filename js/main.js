@@ -180,6 +180,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
 
     lComp = document.getElementById("sq-comp");
+    //  IDEAS:
+    // Snake, bfs or dfs, pixel letters maybe scrolling accross, maybe some
+    // sort of image/movie playing, game of life!
+
 
     function playSnake(sqs) {
         // Initialization
@@ -188,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         state.rowLen = 6;
         state.cellColor = "rgb(0,95,153)";
         state.foodColor = "rgb(0,45,103)";
+        state.numFood = 0; // number of food cells collected
         state.snakeColor = themeColors[3];
         state.snake = [];
         state.speed = 500; // ms delay between movements
@@ -196,10 +201,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
         document.onkeydown = function(evt) {
-            if (evt.keyCode == 37 && state.direction != "right") state.direction = "left";
-            else if (evt.keyCode == 38 && state.direction != "down") state.direction = "up";
-            else if (evt.keyCode == 39 && state.direction != "left") state.direction = "right";
-            else if (evt.keyCode == 40 && state.direction != "up") state.direction = "down";
+            console.log(evt.keyCode)
+            if ((evt.keyCode == 37 || evt.keyCode == 65) && state.direction != "right") state.direction = "left";
+            else if ((evt.keyCode == 38 || evt.keyCode == 87) && state.direction != "down") state.direction = "up";
+            else if ((evt.keyCode == 39 || evt.keyCode == 68) && state.direction != "left") state.direction = "right";
+            else if ((evt.keyCode == 40 || evt.keyCode == 83) && state.direction != "up") state.direction = "down";
 
             console.log("Move", state.direction);
         }
@@ -225,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function generateFoodCell(state) {
         // If there's no more room, don't add a food cell.
-        if (state.snake.length >= state.sqs.length){
+        if (state.snake.length >= state.sqs.length) {
             console.log("Win?");
             return;
         }
@@ -243,16 +249,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function snakeLoop(state) {
         // Play!
         var state = state;
-        var nIntervId = setInterval(function() {
+        var foodCount = state.numFood;
+        var playRound = function() {
             if (currState != "comp") clearInterval(nIntervId);
-            state = snakeRound(state);
-            console.log(state.alive, "Alive?")
+            if (state.numFood > foodCount) {
+                clearInterval(nIntervId);
+                state.speed -= 50;
+                foodCount = state.numFood;
+                nIntervId = setInterval(playRound, state.speed);
+            }
             if (!(state.alive)) {
                 console.log("HE'S DEAD JIM!");
                 clearInterval(nIntervId);
+                snakeGameOver(state);
+            } else {
+                state = snakeRound(state);
             }
-        }, state.speed);
-
+        }
+        var nIntervId = setInterval(playRound, state.speed);
     }
 
     function snakeRound(state) {
@@ -291,6 +305,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         }
 
+        // Check if snake head collided with rest of snake
+        var snakeRest = state.snake.slice();
+        snakeRest = snakeRest.slice(0, snakeRest.length - 1)
+        if (snakeRest.indexOf(head) != -1) {
+            state.alive = false;
+            return state
+        }
+
         // Move the snake
         // Check if snake has consumed the food. If not, move tail.
         if (head != state.foodCell) {
@@ -299,8 +321,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // Remove tail
             state.snake = state.snake.splice(1, state.snake.length);
         } else {
+            state.numFood += 1;
             generateFoodCell(state);
-            state.speed *= 2; 
 
         }
         // Add new head
@@ -308,6 +330,48 @@ document.addEventListener("DOMContentLoaded", function(event) {
         state.sqs[newHead].style.background = state.snakeColor;
 
         return state;
+    }
+
+    function snakeGameOver(state) {
+        for (i = 0; i < state.sqs.length; i++) {
+            state.sqs[i].style.transitionDuration = "1s"
+            state.sqs[i].style.transitionDelay = "0s"
+            state.sqs[i].style.background = "white"
+        }
+        // right justified numbers, can be shifted for the
+        // tens digit
+        var dispNums = [
+            [9, 10, 11, 15, 17, 21, 23, 27, 29, 33, 34, 35],
+            [9, 10, 16, 22, 28, 33, 34, 35],
+            [9, 10, 17, 22, 27, 33, 34, 35],
+            [9, 10, 11, 17, 21, 22, 23, 29, 33, 34, 35],
+            [9, 11, 15, 17, 21, 22, 23, 29, 35],
+            [9, 10, 11, 15, 17, 21, 22, 23, 29, 33, 34, 35],
+            [9, 10, 11, 15, 21, 22, 23, 27, 29, 33, 34, 35],
+            [9, 10, 11, 17, 23, 29, 35],
+            [9, 10, 11, 15, 17, 21, 22, 23, 27, 29, 33, 34, 35],
+            [9, 10, 1115, 17, 21, 22, 23, 29, 35]
+        ];
+        if (state.numFood > 90) {
+            // This should never feasibly happen, so just return early here.
+            return;
+        } else if (state.numFood > 9) {
+            var tens = parseInt(state.numFood.toString()[0]);
+            var ones = parseInt(state.numFood.toString()[1]);
+        } else {
+            var tens = 0;
+            var ones = parseInt(state.numFood.toString()[0]);
+        }
+        // display tens digit
+        for (i = 0; i < dispNums[tens].length; i++) {
+            console.log(dispNums[tens][i]-3)
+            state.sqs[dispNums[tens][i]-3].style.background = "orange";
+        }
+        // display ones digit
+        for (i = 0; i < dispNums[ones].length; i++) {
+            console.log(i)
+            state.sqs[dispNums[ones][i]].style.background = "yellow";
+        }
     }
 
 
@@ -360,8 +424,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
     lComp.onmouseout = function() {
         currState = "";
-        // setDefault(sqDivs)
-        setComp(sqDivs)
+        setDefault(sqDivs)
+            // setComp(sqDivs)
     };
 });
 
