@@ -254,12 +254,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (currState != "comp") clearInterval(nIntervId);
             if (state.numFood > foodCount) {
                 clearInterval(nIntervId);
-                state.speed -= 50;
+                state.speed -= state.speed*0.10;
                 foodCount = state.numFood;
                 nIntervId = setInterval(playRound, state.speed);
             }
             if (!(state.alive)) {
-                console.log("HE'S DEAD JIM!");
                 clearInterval(nIntervId);
                 snakeGameOver(state);
             } else {
@@ -336,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (i = 0; i < state.sqs.length; i++) {
             state.sqs[i].style.transitionDuration = "1s"
             state.sqs[i].style.transitionDelay = "0s"
-            state.sqs[i].style.background = "white"
+            state.sqs[i].style.background = themeColors[1]
         }
         // right justified numbers, can be shifted for the
         // tens digit
@@ -350,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             [9, 10, 11, 15, 21, 22, 23, 27, 29, 33, 34, 35],
             [9, 10, 11, 17, 23, 29, 35],
             [9, 10, 11, 15, 17, 21, 22, 23, 27, 29, 33, 34, 35],
-            [9, 10, 1115, 17, 21, 22, 23, 29, 35]
+            [9, 10, 11, 15, 17, 21, 22, 23, 29, 35]
         ];
         if (state.numFood > 90) {
             // This should never feasibly happen, so just return early here.
@@ -370,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // display ones digit
         for (i = 0; i < dispNums[ones].length; i++) {
             console.log(i)
-            state.sqs[dispNums[ones][i]].style.background = "yellow";
+            state.sqs[dispNums[ones][i]].style.background = "red";
         }
     }
 
