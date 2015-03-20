@@ -27,7 +27,6 @@ li {
 .greeting-holder {
     padding-bottom: 30px;
     margin-top: -41px;
-    
 }
 .pure-menu-heading {
     height: 70px;
@@ -128,7 +127,8 @@ li {
     font-weight: 100;
     text-transform: lowercase;
     letter-spacing: 0.14em;
-    padding-top: 25px;;
+    padding-top: 25px;
+    ;
 }
 .home-title-main {
     font-weight: 100;
@@ -180,8 +180,9 @@ li {
 }
 .experience-container > ul > li > span {
     background: white;
-    padding: 0px 6px 0px 0px;;
-}  
+    padding: 0px 6px 0px 0px;
+    ;
+}
 .experience-container > ul li:before {
     content: "—";
     color: rgba(179, 179, 179, 0.8);
@@ -216,6 +217,7 @@ li {
     transition: all 1s ease-out;
     height: 40px;
     /*border: 1px solid rgb(14, 197, 229);*/
+    
     width: 40px;
     margin: 11px 9px 9px 7px;
     mix-blend-mode: luminosity;
@@ -228,4 +230,44 @@ li {
     font-size: 2em;
     border: 0px white solid;
     box-shadow: -3px 3px 22px rgba(170, 170, 170, 0.93);
+}
+.contact-holder {
+    margin-bottom: 40px;
+}
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+}
+.contact-item {
+    font-size: 1.2em;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    display: inline;
+    margin-left: 70px;
+}
+.contact-icon {
+    display: inline-block;
+    position: absolute;
+}
+#icon-mail {
+    height: 25px;
+    padding-right: 20px;
+    padding-top: 2px;
+}
+#icon-github {
+    height: 31px;
+    margin-left: 2px;
+    margin-top: -2px;
+}
+#icon-flickr {
+    height: 31px;
+    margin-left: 2px;
+    margin-top: -2px;
+
+}
+#icon-linkedin {
+    height: 29px;
+    margin-left: 4px;
+    margin-top: -3px;
+    
 }
