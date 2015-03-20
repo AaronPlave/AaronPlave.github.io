@@ -171,13 +171,6 @@ li {
     letter-spacing: 0.1em;
     padding: 0px 2px 0px 4px;
     background: white;
-    display: inline;
-}
-.experience-holder {
-    background-image: url("../img/experience_nasa.png");
-    padding: 30px;
-    background-repeat: no-repeat;
-    background-size: cover;;;
 }
 .experience-container {
     margin-bottom: 30px;
@@ -187,13 +180,13 @@ li {
 }
 .experience-container > ul > li > span {
     background: white;
-    padding: 0px 6px 0px 6px;;
+    padding: 0px 6px 0px 0px;;
 }  
 .experience-container > ul li:before {
     content: "—";
-    color: white;
+    color: rgba(179, 179, 179, 0.8);
     position: relative;
-    left: -5px;
+    left: -6px;
     font-weight: 100;
 }
 .experience-container > ul li {
