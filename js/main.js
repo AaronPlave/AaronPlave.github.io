@@ -1,4 +1,5 @@
 var currState;
+var prevLink;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var supportsMixBlendMode = window.getComputedStyle(document.body).mixBlendMode;
@@ -12,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         pageProjects = document.getElementById('page-projects'),
         pageContact = document.getElementById('page-contact');
 
+    
+
     var allPageLinks = [
         [pageHome, 'page-home'],
         [pageAbout, 'page-about'],
@@ -20,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         [pageContact, 'page-contact']
     ];
 
-    function toggleHidden(targetElement, pageLinks) {
+    function toggleActive(targetElement, pageLinks) {
         var target = targetElement.target.id.split("-")[1];
         for (i = 0; i < pageLinks.length; i++) {
             var curr = pageLinks[i][1].split("-")[1];
@@ -39,10 +42,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         navProjects = document.getElementById('nav-projects'),
         navContact = document.getElementById('nav-contact');
 
+    prevLink = navHome;
+
     var allNavLinks = [navHome, navAbout, navExperience, navProjects, navContact];
     for (i = 0; i < allNavLinks.length; i++) {
         allNavLinks[i].onclick = function(e) {
-            toggleHidden(e, allPageLinks)
+            // toggle link style
+            toggleClass(prevLink, "active-nav");
+            prevLink = e.target;
+            toggleClass(prevLink, "active-nav");
+
+            // toggle active page
+            toggleActive(e, allPageLinks);
+
         };
     }
 
@@ -260,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if (currState != "comp") clearInterval(nIntervId);
             if (state.numFood > foodCount) {
                 clearInterval(nIntervId);
-                state.speed -= state.speed*0.10;
+                state.speed -= state.speed * 0.10;
                 foodCount = state.numFood;
                 nIntervId = setInterval(playRound, state.speed);
             }
@@ -369,8 +381,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         // display tens digit
         for (i = 0; i < dispNums[tens].length; i++) {
-            console.log(dispNums[tens][i]-3)
-            state.sqs[dispNums[tens][i]-3].style.background = "orange";
+            console.log(dispNums[tens][i] - 3)
+            state.sqs[dispNums[tens][i] - 3].style.background = "orange";
         }
         // display ones digit
         for (i = 0; i < dispNums[ones].length; i++) {

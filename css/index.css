@@ -39,6 +39,9 @@ li {
     background: none;
     text-decoration: underline;
 }
+.active-nav {
+      border-bottom: 1px rgba(69, 192, 214, 0.78) solid !important;
+}
 #header-firstname {
     font-weight: 700;
     font-size: 1.4em;
@@ -263,11 +266,9 @@ li {
     height: 31px;
     margin-left: 2px;
     margin-top: -2px;
-
 }
 #icon-linkedin {
     height: 29px;
     margin-left: 4px;
     margin-top: -3px;
-    
 }
