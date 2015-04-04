@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var pageHome = document.getElementById('page-home'),
         pageAbout = document.getElementById('page-about'),
         pageExperience = document.getElementById('page-experience'),
-        pageProjects = document.getElementById('page-projects'),
+        pageProgramming = document.getElementById('page-programming'),
+        pageDesign = document.getElementById('page-design'),
         pageContact = document.getElementById('page-contact');
 
     
@@ -19,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         [pageHome, 'page-home'],
         [pageAbout, 'page-about'],
         [pageExperience, 'page-experience'],
-        [pageProjects, 'page-projects'],
+        [pageProgramming, 'page-programming'],
+        [pageDesign, 'page-design'],
         [pageContact, 'page-contact']
     ];
 
@@ -39,12 +41,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var navHome = document.getElementById('nav-home'),
         navAbout = document.getElementById('nav-about'),
         navExperience = document.getElementById('nav-experience'),
-        navProjects = document.getElementById('nav-projects'),
+        navProgramming = document.getElementById('nav-programming'),
+        navDesign = document.getElementById('nav-design'),
         navContact = document.getElementById('nav-contact');
 
     prevLink = navHome;
 
-    var allNavLinks = [navHome, navAbout, navExperience, navProjects, navContact];
+    var allNavLinks = [navHome, navAbout, navExperience, 
+    navProgramming, navDesign, navContact];
     for (i = 0; i < allNavLinks.length; i++) {
         allNavLinks[i].onclick = function(e) {
             // toggle link style
@@ -353,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (i = 0; i < state.sqs.length; i++) {
             state.sqs[i].style.transitionDuration = "1s"
             state.sqs[i].style.transitionDelay = "0s"
-            state.sqs[i].style.background = themeColors[1]
+            state.sqs[i].style.background = colorWhite;
         }
         // right justified numbers, can be shifted for the
         // tens digit
@@ -382,12 +386,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // display tens digit
         for (i = 0; i < dispNums[tens].length; i++) {
             console.log(dispNums[tens][i] - 3)
-            state.sqs[dispNums[tens][i] - 3].style.background = "orange";
+            state.sqs[dispNums[tens][i] - 3].style.background = "gray";
         }
         // display ones digit
         for (i = 0; i < dispNums[ones].length; i++) {
             console.log(i)
-            state.sqs[dispNums[ones][i]].style.background = "red";
+            state.sqs[dispNums[ones][i]].style.background = "black";
         }
     }
 

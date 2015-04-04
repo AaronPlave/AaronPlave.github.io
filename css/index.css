@@ -5,29 +5,35 @@ body {
     /*font-family: 'Roboto',sans-serif;*/
     /*font-family: 'Montserrat',sans-serif;*/
 }
+
 li {
     list-style: none;
 }
+
 ::-webkit-scrollbar {
     width: 11px;
     height: 12px;
 }
+
 ::-webkit-scrollbar-button {
     width: 0;
     height: 0;
     display: none;
     color: black;
 }
+
 ::-webkit-scrollbar-thumb {
     height: 6px;
     border: 4px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
     background-color: rgba(69, 192, 214, 0.78);
 }
+
 .greeting-holder {
     padding-bottom: 30px;
     margin-top: -41px;
 }
+
 .pure-menu-heading {
     height: 70px;
     background-position: center;
@@ -35,20 +41,27 @@ li {
     background-repeat: no-repeat;
     background-image: url("../img/logo.png");
 }
-.pure-menu-active>.pure-menu-link, .pure-menu-link:hover, .pure-menu-link:focus {
+
+.pure-menu-active>.pure-menu-link,
+.pure-menu-link:hover,
+.pure-menu-link:focus {
     background: none;
     text-decoration: underline;
 }
+
 .active-nav {
-      border-bottom: 1px rgba(69, 192, 214, 0.78) solid !important;
+    border-bottom: 1px rgba(69, 192, 214, 0.78) solid !important;
 }
+
 #header-firstname {
     font-weight: 700;
     font-size: 1.4em;
     letter-spacing: 0em;
     display: inline-block;
 }
-#header-lastname, #header-section {
+
+#header-lastname,
+#header-section {
     font-weight: 100;
     margin-top: -25px;
     letter-spacing: 0em;
@@ -56,6 +69,7 @@ li {
     display: inline-block;
     text-transform: uppercase;
 }
+
 #header-divider {
     padding: 0px 12px 0px;
     font-size: 1.2em;
@@ -65,11 +79,13 @@ li {
     text-decoration: none;
     display: inline;
 }
+
 .content-subhead {
     font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 1em;
 }
+
 .content-subtitle {
     letter-spacing: 0em;
     font-weight: 100;
@@ -77,27 +93,33 @@ li {
     color: #4E4E4E;
     margin: 65px 0px 15px 0;
 }
+
 .pullout {
     display: inline-block;
     font-size: 8.6em;
     font-variant: small-caps;
 }
+
 #pullout-1 {
     color: #69F46A;
     mix-blend-mode: multiply;
 }
+
 #pullout-2 {
     color: #FCE602;
     mix-blend-mode: multiply;
 }
+
 #pullout-3 {
     color: #FA4DE4;
     mix-blend-mode: multiply;
 }
+
 #pullout-4 {
     color: rgb(14, 197, 229);
     mix-blend-mode: multiply;
 }
+
 .content-smallheading {
     font-weight: 500;
     font-size: 0.9em;
@@ -106,25 +128,32 @@ li {
     display: block;
     margin-top: 11px;
 }
+
 .content-subtext {
     font-size: 0.85em;
     display: block;
 }
+
 .content-first {
     margin-top: 120px;
     margin-bottom: 40px;
 }
+
 #about-typedesign {
     line-height: 0em;
 }
+
 .home-title {
     display: table;
     cursor: default;
 }
+
 .home-title:hover {
     color: red;
 }
-.home-title, .home-title-main {
+
+.home-title,
+.home-title-main {
     font-size: 1.4em;
     line-height: 1em;
     font-weight: 100;
@@ -133,27 +162,33 @@ li {
     padding-top: 25px;
     ;
 }
+
 .home-title-main {
     font-weight: 100;
     color: rgb(51, 51, 51);
 }
+
 .main-1 {
     font-size: 2.5em;
     color: rgb(51, 51, 51);
     padding-top: 0px;
 }
+
 .main-2::first-letter {
     color: rgb(14, 197, 229);
 }
+
 .main-3 {
     color: #FA4DE4;
     font-size: 2.5em;
     display: inline-block;
     padding-left: 11px;
 }
+
 .blue {
     color: rgb(14, 197, 229);
 }
+
 .content-download {
     color: rgb(14, 197, 229);
     font-size: 0.9em;
@@ -161,6 +196,7 @@ li {
     border: rgb(14, 197, 229) solid 1px;
     padding: 1px 5px 2px 5px;
 }
+
 .experience-title {
     letter-spacing: 0.1em;
     font-weight: 400;
@@ -169,23 +205,28 @@ li {
     background: white;
     padding: 0px 2px 0px 4px;
 }
+
 .experience-subtitle {
     font-weight: 100;
     letter-spacing: 0.1em;
     padding: 0px 2px 0px 4px;
     background: white;
 }
+
 .experience-container {
     margin-bottom: 30px;
 }
+
 .experience-container > ul {
     list-style-type: none;
 }
+
 .experience-container > ul > li > span {
     background: white;
     padding: 0px 6px 0px 0px;
     ;
 }
+
 .experience-container > ul li:before {
     content: "—";
     color: rgba(179, 179, 179, 0.8);
@@ -193,24 +234,77 @@ li {
     left: -6px;
     font-weight: 100;
 }
+
 .experience-container > ul li {
     text-indent: -15px;
     margin-bottom: 5px;
     display: inline-table;
     line-height: 1.7;
 }
+
 .experience-img {
     margin-bottom: 140px;
 }
+/*programming STYLES*/
+
+.programming-section {
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: rgba(108, 206, 223, 0.99);
+}
+
+.programming-title {
+    letter-spacing: -0.05em;
+    font-weight: 100;
+    border-bottom: 1px rgb(14, 197, 229) solid;
+    font-size: 2em;
+}
+
+.programming-container {
+    margin-bottom: 30px;
+}
+
+.programming-container > ul {
+    list-style-type: none;
+}
+
+.programming-container > ul li {
+    margin-bottom: 5px;
+    display: inline-table;
+    line-height: 1.7;
+    text-indent: -15px;
+}
+.programming-container > ul li:before {
+    content: "—";
+    color: rgba(179, 179, 179, 0.8);
+    position: relative;
+    left: -6px;
+    font-weight: 100;
+}
+
+.programming-img {
+    margin-bottom: 140px;
+}
+
+.programming-img > div > img {
+    border: 1px solid;
+}
+/*END programming STYLES*/
+
 .home-title-main.main-2 {
     display: inline-block;
     font-size: 2.5em;
 }
+
 .squares-container {
     padding-top: 80px;
     line-height: 1em;
     max-width: 50%;
 }
+
 .square {
     font-family: inconsolata;
     -webkit-transition: all 1s ease-out;
@@ -234,13 +328,16 @@ li {
     border: 0px white solid;
     box-shadow: -3px 3px 22px rgba(170, 170, 170, 0.93);
 }
+
 .contact-holder {
     margin-bottom: 40px;
 }
+
 .contact-link {
     text-decoration: none;
     color: inherit;
 }
+
 .contact-item {
     font-size: 1.2em;
     font-weight: 100;
@@ -248,25 +345,30 @@ li {
     display: inline;
     margin-left: 70px;
 }
+
 .contact-icon {
     display: inline-block;
     position: absolute;
 }
+
 #icon-mail {
     height: 25px;
     padding-right: 20px;
     padding-top: 2px;
 }
+
 #icon-github {
     height: 31px;
     margin-left: 2px;
     margin-top: -2px;
 }
+
 #icon-flickr {
     height: 31px;
     margin-left: 2px;
     margin-top: -2px;
 }
+
 #icon-linkedin {
     height: 29px;
     margin-left: 4px;
