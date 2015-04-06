@@ -302,6 +302,7 @@ li {
 .programming-img > div > a > img {
     border: 1px solid black;
 }
+
 .programming-img > div > a > img:hover {
     opacity: 0.8;
     -webkit-transition: all 0.2s ease-out;
@@ -311,6 +312,36 @@ li {
     transition: all 0.2s ease-out;
 }
 /*END programming STYLES*/
+/*Design STYLES*/
+
+.design-section {}
+
+.design-title {
+    font-size: 8em;
+    font-weight: 900;
+    text-transform: lowercase;
+    display: inline-block;
+    font-variant: small-caps;
+    letter-spacing: -0.04em;
+    color: rgba(0, 0, 0, 0.76);
+    border-bottom: 87px rgb(246, 219, 62) solid;
+    padding-bottom: 46px;
+    float: left;
+    margin-right: 26px;
+    margin-top: 2px;
+}
+
+.design-description {
+    font-weight: 100;
+    margin-bottom: 30px;
+    font-size: 1.3em;
+    line-height: 1.4em;
+    font-style: italic;
+    max-width: 390px;
+    display: inline-block;
+    margin-top: -9px;
+}
+/*END Design STYLES*/
 
 .home-title-main.main-2 {
     display: inline-block;
