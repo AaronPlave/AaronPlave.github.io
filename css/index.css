@@ -23,10 +23,10 @@ li {
 }
 
 ::-webkit-scrollbar-thumb {
-    height: 6px;
     border: 4px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
     background-color: rgba(69, 192, 214, 0.78);
+    height: 6px;
 }
 
 .greeting-holder {
