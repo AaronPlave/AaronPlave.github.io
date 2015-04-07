@@ -1,4 +1,5 @@
 var currState;
+var currID;
 var prevLink;
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -171,13 +172,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Design
     lWeb = document.getElementById("sq-web");
 
-    function setWeb(sqs) {
+    function setWeb(sqs, cID) {
         if (currState != "web") return;
+        if (cID != currID) return;
         for (i = 0; i < sqs.length; i++) {
             var currSq = sqs[i];
             if (getRandomInt(0, 3) == 1) {
                 var delay = getRandomFloat(0, 2.5);
                 var item = setTimeout(function(el) {
+                    if (cID != currID) return;
                     if (currState != "web") return;
                     el.innerHTML = getRandomASCII();
                     el.style.background = getRandomColor(themeNoBlack);
@@ -192,13 +195,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         // recurse after a bit of a time delay
         setTimeout(function() {
             if (currState != "web") return;
-            setWeb(sqs);
+            if (cID != currID) return;
+            setWeb(sqs, cID);
         }, 2600);
     }
 
     lWeb.onmouseover = function() {
         currState = "web";
-        setWeb(sqDivs)
+        currID = getRandomInt(0, 100000000);
+        setWeb(sqDivs, currID)
     };
     lWeb.onmouseout = function() {
         currState = "";
@@ -211,9 +216,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // sort of image/movie playing, game of life!
 
 
-    function playSnake(sqs) {
+    function playSnake(sqs, cID) {
+        if (cID != currID) return;
         // Initialization
         var state = {};
+        state.cID = cID;
         state.sqs = sqs;
         state.rowLen = 6;
         state.cellColor = "rgb(0,95,153)";
@@ -256,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function generateFoodCell(state) {
+        if (state.cID != currID) return;
         // If there's no more room, don't add a food cell.
         if (state.snake.length >= state.sqs.length) {
             console.log("Win?");
@@ -278,6 +286,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var foodCount = state.numFood;
         var playRound = function() {
             if (currState != "comp") clearInterval(nIntervId);
+            if (state.cID != currID) clearInterval(nIntervId);
             if (state.numFood > foodCount) {
                 clearInterval(nIntervId);
                 state.speed -= state.speed * 0.10;
@@ -295,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function snakeRound(state) {
+        if (state.cID != currID) return;
         // Game round 
         // Check for snake head outside of grid
         var head = state.snake[state.snake.length - 1];
@@ -358,6 +368,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function snakeGameOver(state) {
+        if (state.cID != currID) return;
         for (i = 0; i < state.sqs.length; i++) {
             state.sqs[i].style.transitionDuration = "1s"
             state.sqs[i].style.transitionDelay = "0s"
@@ -401,9 +412,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-    function playGameOfLife(sqs) {
+    function playGameOfLife(sqs, cID) {
+        if (cID != currID) return;
         // Declare state variables
         var state = {};
+        state.cID = cID;
         state.sqs = sqs;
         state.rLen = 6;
         state.grid = [];
@@ -418,6 +431,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function golUpdate(state) {
         if (currState != "comp") return;
+        if (state.cID != currID) return;
         // Update grid to reflect grid
         for (i = 0; i < state.sqs.length; i++) {
             state.sqs[i].style.background = (state.grid[i] == 0) ?
@@ -428,6 +442,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function golTicks(state) {
         setTimeout(function() {
             if (currState != "comp") return;
+            if (state.cID != currID) return;
             // Compute next state
             var nextState = golTick(state);
             golUpdate(state);
@@ -437,6 +452,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function golTick(state) {
         if (currState != "comp") return;
+        if (state.cID != currID) return;
         // for each cell in state.grid, compute next state
         var rLen = state.rLen;
         var nextGen = [];
@@ -499,6 +515,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function golInit(state) {
+        if (state.cID != currID) return;
         // Initialize grid
         var aliveChance = 0.5;
         for (i = 0; i < state.sqs.length; i++) {
@@ -517,20 +534,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setComp(sqs) {
         if (currState != "comp") return;
         var option = getRandomInt(0, 2);
+        currID = getRandomInt(0, 100000000);
         if (option == 1) {
-            playSnake(sqs);
+            playSnake(sqs, currID);
         } else {
-            playGameOfLife(sqs);
+            playGameOfLife(sqs, currID);
         }
     }
 
     lComp.onmouseover = function() {
         currState = "comp";
-        setComp(sqDivs)
+        setComp(sqDivs, currID);
     };
     lComp.onmouseout = function() {
         currState = "";
         setDefault(sqDivs)
+        console.log("out", currState)
     };
 });
 

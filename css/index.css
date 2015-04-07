@@ -332,13 +332,21 @@ li {
     margin-top: 2px;
     border-bottom: 87px rgb(246, 219, 62) solid;
 }
-
-.dImg {
-    display: table;
-}
+#design-title1 {}
+#design-title2 {
+    border-bottom: 15px rgb(249, 190, 0) solid;
+    padding-bottom: 55px;
+    margin-right: 0px;
+    padding-right: 71px;
+    color: rgb(61, 61, 61);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 0em;;}
+#design-title3 {
+    border-bottom: 87px rgba(243, 138, 86, 0.83) solid;}
 
 #design-description1 {
-    max-width: inherit;
+    max-width: 660px;
     margin-top: 20px;
 }
 
