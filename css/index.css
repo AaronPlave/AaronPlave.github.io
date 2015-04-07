@@ -314,21 +314,32 @@ li {
 /*END programming STYLES*/
 /*Design STYLES*/
 
-.design-section {}
+.design-section {
+    margin-bottom: 209px;
+}
 
 .design-title {
     font-size: 8em;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: lowercase;
     display: inline-block;
     font-variant: small-caps;
     letter-spacing: -0.04em;
     color: rgba(0, 0, 0, 0.76);
-    border-bottom: 87px rgb(246, 219, 62) solid;
     padding-bottom: 46px;
     float: left;
     margin-right: 26px;
     margin-top: 2px;
+    border-bottom: 87px rgb(246, 219, 62) solid;
+}
+
+.dImg {
+    display: table;
+}
+
+#design-description1 {
+    max-width: inherit;
+    margin-top: 20px;
 }
 
 .design-description {
@@ -366,7 +377,7 @@ li {
     
     width: 40px;
     margin: 11px 9px 9px 7px;
-    mix-blend-mode: luminosity;
+    mix-blend-mode: multiply;
     background: rgb(14, 197, 229);
     color: transparent;
     text-align: center;

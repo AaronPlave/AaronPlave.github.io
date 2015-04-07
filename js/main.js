@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         pageDesign = document.getElementById('page-design'),
         pageContact = document.getElementById('page-contact');
 
-    
+
 
     var allPageLinks = [
         [pageHome, 'page-home'],
@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     prevLink = navHome;
 
-    var allNavLinks = [navHome, navAbout, navExperience, 
-    navProgramming, navDesign, navContact];
+    var allNavLinks = [navHome, navAbout, navExperience,
+        navProgramming, navDesign, navContact
+    ];
     for (i = 0; i < allNavLinks.length; i++) {
         allNavLinks[i].onclick = function(e) {
             // toggle link style
@@ -118,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setDefault(sqs) {
         for (i = 0; i < sqs.length; i++) {
             sqs[i].style.background = colorBlue;
-            sqs[i].style.mixBlendMode = "luminosity";
+            sqs[i].style.mixBlendMode = "multiply";
             sqs[i].style.transitionDuration = "1s";
             sqs[i].style.color = "transparent";
             sqs[i].innerHTML = "&nbsp";
@@ -181,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     el.innerHTML = getRandomASCII();
                     el.style.background = getRandomColor(themeNoBlack);
                     el.style.color = getRandomColor(themeColors);
-                }, delay*1000, currSq)
+                }, delay * 1000, currSq)
             }
             // currSq.
             currSq.style.boxShadow = "none";
@@ -376,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             [9, 10, 11, 15, 17, 21, 22, 23, 27, 29, 33, 34, 35],
             [9, 10, 11, 15, 17, 21, 22, 23, 29, 35]
         ];
-        if (state.numFood > 90) {
+        if (state.numFood > 99) {
             // This should never feasibly happen, so just return early here.
             return;
         } else if (state.numFood > 9) {
@@ -400,36 +401,117 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-    function runSearch(sqs) {
-        // Set initial rgb value
-        var dark = {
-            "r": 0,
-            "g": 45,
-            "b": 103
-        };
-        for (i = 0; i < sqs.length; i++) {
-            // Generate randomly scaled values from initial.
-            // wallChance is chance of generating a wall color
-            var wallColor = "red";
-            var wallChance = 0.2;
-            var makeWall = getRandomFloat(0, 1);
-            if (makeWall < wallChance) {
-                resultRGB = wallColor;
-            } else {
-                var randVal = getRandomFloat(0, 3);
-                var randRGB = {
-                    "r": Math.round(Math.min(dark.r * randVal, 255)),
-                    "g": Math.round(Math.min(dark.g * randVal, 255)),
-                    "b": Math.round(Math.min(dark.b * randVal, 255))
-                };
-                var resultRGB = "rgb(" + randRGB.r +
-                    "," + randRGB.g + "," + randRGB.b + ")";
+    function playGameOfLife(sqs) {
+        // Declare state variables
+        var state = {};
+        state.sqs = sqs;
+        state.rLen = 6;
+        state.grid = [];
+        state.deadColor = colorRed;
+        state.aliveColor = colorWhite;
+
+        // Initialize system
+        var initState = golInit(state);
+        // Play game
+        golTicks(initState);
+    }
+
+    function golUpdate(state) {
+        if (currState != "comp") return;
+        // Update grid to reflect grid
+        for (i = 0; i < state.sqs.length; i++) {
+            state.sqs[i].style.background = (state.grid[i] == 0) ?
+                state.aliveColor : state.deadColor
+        }
+    }
+
+    function golTicks(state) {
+        setTimeout(function() {
+            if (currState != "comp") return;
+            // Compute next state
+            var nextState = golTick(state);
+            golUpdate(state);
+            golTicks(nextState);
+        }, 1000);
+    }
+
+    function golTick(state) {
+        if (currState != "comp") return;
+        // for each cell in state.grid, compute next state
+        var rLen = state.rLen;
+        var nextGen = [];
+        for (i = 0; i < state.grid.length; i++) {
+            // compute sum of neighbors of currS
+            n = 0
+            var topL = i - rLen - 1;
+            var topM = i - rLen;
+            var topR = i - rLen + 1;
+            var midL = i - 1;
+            var midR = i + 1;
+            var botL = i + rLen - 1;
+            var botM = i + rLen;
+            var botR = i + rLen + 1;
+
+            // Check Top
+            if (!(i < rLen)) {
+                n += state.grid[topM];
+                // Check Left
+                if (!(i % rLen == 0)) {
+                    n += state.grid[topL];
+                    n += state.grid[midL];
+                }
+                // Check Right
+                if (!(i % rLen == rLen - 1)) {
+                    n += state.grid[topR];
+                    n += state.grid[midR];
+                }
+            }
+            // Check bottom
+            if (!(i > state.grid.length - rLen - 1)) {
+                n += state.grid[botM];
+                // Check Left
+                if (!(i % rLen == 0)) {
+                    n += state.grid[botL];
+                }
+                // Check Right
+                if (!(i % rLen == rLen - 1)) {
+                    n += state.grid[botR];
+                }
             }
 
-            var currSq = sqs[i];
-            currSq.style.mixBlendMode = "multiply";
-            currSq.style.background = resultRGB;
+            // Calculate next step
+            var currS = state.grid[i];
+            // If the cell is alive..
+            if (currS == 1) {
+                if (n == 2 || n == 3) {
+                    nextGen.push(1)
+                } else {
+                    nextGen.push(0)
+                }
+            } else if (currS == 0 && n == 3) {
+                nextGen.push(1)
+            } else {
+                nextGen.push(0)
+            }
         }
+        state.grid = nextGen;
+        return state;
+    }
+
+    function golInit(state) {
+        // Initialize grid
+        var aliveChance = 0.5;
+        for (i = 0; i < state.sqs.length; i++) {
+            var rand = getRandomFloat(0, 1);
+            state.grid[i] = rand < aliveChance ? 1 : 0
+        }
+        // Update grid to reflect grid
+        for (i = 0; i < state.sqs.length; i++) {
+            state.sqs[i].style.background = (state.grid[i] == 0) ?
+                state.aliveColor : state.deadColor
+            state.sqs[i].style.transitionDuration = "0.2s";
+        }
+        return state;
     }
 
     function setComp(sqs) {
@@ -438,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (option == 1) {
             playSnake(sqs);
         } else {
-            runSearch(sqs);
+            playGameOfLife(sqs);
         }
     }
 
@@ -449,7 +531,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lComp.onmouseout = function() {
         currState = "";
         setDefault(sqDivs)
-            // setComp(sqDivs)
     };
 });
 
