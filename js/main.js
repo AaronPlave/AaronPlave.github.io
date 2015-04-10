@@ -517,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function golInit(state) {
         if (state.cID != currID) return;
         // Initialize grid
-        var aliveChance = 0.5;
+        var aliveChance = 0.3;
         for (i = 0; i < state.sqs.length; i++) {
             var rand = getRandomFloat(0, 1);
             state.grid[i] = rand < aliveChance ? 1 : 0

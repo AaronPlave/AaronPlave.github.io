@@ -318,48 +318,62 @@ li {
     margin-bottom: 209px;
 }
 
-.design-title {
-    font-size: 8em;
-    font-weight: 800;
-    text-transform: lowercase;
-    display: inline-block;
-    font-variant: small-caps;
-    letter-spacing: -0.04em;
-    color: rgba(0, 0, 0, 0.76);
-    padding-bottom: 46px;
-    float: left;
-    margin-right: 26px;
-    margin-top: 2px;
-    border-bottom: 87px rgb(246, 219, 62) solid;
-}
 #design-title1 {}
+
 #design-title2 {
-    border-bottom: 15px rgb(249, 190, 0) solid;
-    padding-bottom: 55px;
-    margin-right: 0px;
-    padding-right: 71px;
+    border-bottom: 2px rgb(61, 61, 61) solid;
     color: rgb(61, 61, 61);
     font-weight: 900;
-    letter-spacing: -0.03em;
-    line-height: 0em;;}
+    letter-spacing: 0.15em;
+    line-height: 0em;
+    padding-bottom: 24px;
+    font-size: 2.7em;
+}
+
+#design-title2-1 {
+    font-weight: 100;
+    margin-left: -11px;
+    margin-right: 10px;
+}
+
+#design-title2-2 {
+    font-size: 0.7em;
+    color: rgba(252, 60, 104, 0.93);
+    font-weight: 700;
+    ;
+    ;
+    ;
+}
+
+#design-title2-3 {
+    font-weight: 100;
+    margin-left: 11px;
+}
+
 #design-title3 {
-    border-bottom: 87px rgba(243, 138, 86, 0.83) solid;}
+    letter-spacing: 0.15em;
+    font-size: 2.9em;
+    padding-right: -20px;
+    border-bottom: 2px rgba(243, 138, 86, 0.83) solid;
+    font-weight: 100;
+    padding-bottom: 15px;
+    margin-right: 90px;
+}
+
+#design-description0 {
+    margin-top: 46px;
+    margin-left: -15px;
+    max-width: 242px;
+}
 
 #design-description1 {
-    max-width: 660px;
+    max-width: 630px;
     margin-top: 20px;
 }
 
-.design-description {
-    font-weight: 100;
-    margin-bottom: 30px;
-    font-size: 1.3em;
-    line-height: 1.4em;
-    font-style: italic;
-    max-width: 390px;
-    display: inline-block;
-    margin-top: -9px;
-}
+#design-description2 {
+    max-width: 660px;
+    margin-top: 20px;}
 /*END Design STYLES*/
 
 .home-title-main.main-2 {
@@ -441,4 +455,40 @@ li {
     height: 29px;
     margin-left: 4px;
     margin-top: -3px;
+}
+
+.design-description {
+    ;
+    margin-top: -9px;
+    max-width: 255px;
+    margin-bottom: 30px;
+    line-height: 1.6em;
+    font-style: oblique;
+    font-size: 1em;
+    display: inline-block;
+    ;
+    ;
+    /*font-family: 'Source Sans Pro',sans-serif;*/
+    /*font-family: 'Lato',sans-serif;*/
+    /*font-family: 'Roboto',sans-serif;*/
+    /*font-family: 'Montserrat',sans-serif;*/
+}
+
+.design-title {
+    font-size: 2.7em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 0.15em;
+    color: rgba(0, 0, 0, 0.76);
+    float: left;
+    margin-top: 2px;
+    border-bottom: 2px rgb(61, 61, 61) solid;
+    padding-bottom: 12px;
+    display: inline-block;
+    font-weight: 800;
+    margin-right: 26px;
+    /*font-family: 'Source Sans Pro',sans-serif;*/
+    /*font-family: 'Lato',sans-serif;*/
+    /*font-family: 'Roboto',sans-serif;*/
+    /*font-family: 'Montserrat',sans-serif;*/
 }
