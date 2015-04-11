@@ -198,12 +198,18 @@ li {
 }
 
 .experience-title {
-    letter-spacing: 0.1em;
-    font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px rgb(14, 197, 229) solid;
     background: white;
     padding: 0px 2px 0px 4px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.experience-position {
+    font-weight: 300;
+    color: rgba(36, 36, 36, 0.78);
 }
 
 .experience-subtitle {
@@ -367,13 +373,14 @@ li {
 }
 
 #design-description1 {
-    max-width: 630px;
+    max-width: 638px;
     margin-top: 20px;
 }
 
 #design-description2 {
     max-width: 660px;
-    margin-top: 20px;}
+    margin-top: 20px;
+}
 /*END Design STYLES*/
 
 .home-title-main.main-2 {
