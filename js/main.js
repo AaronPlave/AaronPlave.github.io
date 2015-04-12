@@ -61,6 +61,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // toggle active page
             toggleActive(e, allPageLinks);
 
+            // close menu
+            document.getElementById("menuLink").click();
+
         };
     }
 

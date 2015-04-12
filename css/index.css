@@ -328,7 +328,6 @@ li {
     letter-spacing: 0.15em;
     line-height: 0em;
     padding-bottom: 24px;
-    font-size: 2.7em;
 }
 
 #design-title2-1 {
@@ -360,8 +359,8 @@ li {
 
 #design-description0 {
     margin-top: 46px;
-    margin-left: -15px;
     max-width: 242px;
+    margin-left: -15px;
 }
 
 #design-description1 {
@@ -473,7 +472,7 @@ li {
     float: left;
     margin-top: 2px;
     border-bottom: 2px rgb(61, 61, 61) solid;
-    padding-bottom: 12px;
+    padding-bottom: 11px;
     display: inline-block;
     font-weight: 800;
     margin-right: 26px;
@@ -481,6 +480,10 @@ li {
 /*sm size */
 
 @media (max-width: 450px) {
+    .content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
     .pullout {
         font-size: 3.5em !important;
     }
@@ -509,6 +512,49 @@ li {
     .experience-item {
         font-size: 0.9em;
         line-height: 1.6em !important;
+    }
+    .experience-img {
+        margin-left: -9%;
+        margin-right: -9%;
+    }
+    .programming-title {
+        font-size: 1.6em;
+    }
+    .programming-item {
+        font-size: 0.9em;
+    }
+    .programming-container > ul {
+        padding-left: 20px
+    }
+    .programming-img {
+        margin-left: -10%;
+        margin-right: -10%;
+    }
+    .design-description {
+        font-size: 0.9em;
+    }
+    #design-description0 {
+        margin-left: 0px;
+        margin-top: 25px;
+    }
+    .pure-g {
+        margin-left: -13%;
+        margin-right: -13%;
+    }
+    .design-title {
+        font-size: 2em;
+    }
+    .design-section {
+        margin-bottom: 150px;
+    }
+    #design-title2-3 {
+        display: block;
+        margin-top: 28px;
+        margin-left: 0px;
+    }
+    #design-title2-2 {
+        display: block;
+        margin-top: 33px;
     }
 }
 
