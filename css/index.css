@@ -355,6 +355,7 @@ li {
 }
 #design-title2-second {
     margin-top: 30px;
+    display: inline;
 }
 
 #design-description0 {
@@ -526,8 +527,8 @@ li {
         padding-left: 20px
     }
     .programming-img {
-        margin-left: -10%;
-        margin-right: -10%;
+        margin-left: -9%;
+        margin-right: -9%;
     }
     .design-description {
         font-size: 0.9em;
@@ -591,14 +592,15 @@ li {
         margin-bottom: 150px;
     }
     #design-title2-3 {
-        display: inline-block;
         margin-top: 27px;
+        display: inline-block;
     }
     #design-title2-2 {
         margin-top: 33px;
     }
     #design-title2-second {
-        margin-top: 5px;
+        margin-top: -1px;
+        display: block;
         
     }
 }
