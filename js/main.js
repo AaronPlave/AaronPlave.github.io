@@ -214,10 +214,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
 
     lComp = document.getElementById("sq-comp");
-    //  IDEAS:
-    // Snake, bfs or dfs, pixel letters maybe scrolling accross, maybe some
-    // sort of image/movie playing, game of life!
-
 
     function playSnake(sqs, cID) {
         if (cID != currID) return;
@@ -538,7 +534,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (currState != "comp") return;
         var option = getRandomInt(0, 2);
         currID = getRandomInt(0, 100000000);
-        if (option == 1) {
+        if (option == 1 & window.innerWidth > 450) {
             playSnake(sqs, currID);
         } else {
             playGameOfLife(sqs, currID);
@@ -552,7 +548,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lComp.onmouseout = function() {
         currState = "";
         setDefault(sqDivs)
-        console.log("out", currState)
     };
 });
 
