@@ -246,7 +246,7 @@ li {
 }
 
 .experience-img {
-    margin-bottom: 140px;
+    margin-bottom: 150px;
 }
 /*programming STYLES*/
 
@@ -299,7 +299,7 @@ li {
 }
 
 .programming-img {
-    margin-bottom: 140px;
+    margin-bottom: 150px;
 }
 
 .programming-img > div > a > img {
@@ -349,7 +349,6 @@ li {
 
 #design-title3 {
     letter-spacing: 0.15em;
-    font-size: 2.9em;
     padding-right: -20px;
     border-bottom: 2px rgba(243, 138, 86, 0.83) solid;
     font-weight: 100;
@@ -360,7 +359,7 @@ li {
 #design-description0 {
     margin-top: 46px;
     max-width: 242px;
-    margin-left: -15px;
+    margin-left: 9px;
 }
 
 #design-description1 {
@@ -442,7 +441,7 @@ li {
 
 #icon-flickr {
     height: 31px;
-    margin-left: 2px;
+    margin-left: 3px;
     margin-top: -2px;
 }
 
@@ -475,7 +474,6 @@ li {
     padding-bottom: 11px;
     display: inline-block;
     font-weight: 800;
-    margin-right: 26px;
 }
 /*sm size */
 
@@ -548,14 +546,33 @@ li {
         margin-bottom: 150px;
     }
     #design-title2-3 {
-        display: block;
         margin-top: 28px;
         margin-left: 0px;
+        display: inline;
     }
     #design-title2-2 {
-        display: block;
         margin-top: 33px;
+        display: inline-block;
     }
+    .contact-item {
+        font-size: 0.9em;
+    }
+    #icon-mail {
+        height: 17px;
+        padding-top: 5px;
+        padding-left: 31px;}
+    #icon-github {
+        height: 23px;
+        padding-left: 30px;
+        padding-top: 3px;}
+    #icon-flickr {
+        height: 23px;
+        padding-left: 30px;
+        padding-top: 3px;}
+    #icon-linkedin {
+        height: 21px;
+        padding-left: 31px;
+        padding-top: 6px;}
 }
 
 @media screen and (max-width: 767px) {
