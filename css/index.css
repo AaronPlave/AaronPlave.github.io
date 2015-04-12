@@ -327,7 +327,7 @@ li {
     font-weight: 900;
     letter-spacing: 0.15em;
     line-height: 0em;
-    padding-bottom: 24px;
+    padding-bottom: 26px;
 }
 
 #design-title2-1 {
@@ -342,18 +342,19 @@ li {
     font-weight: 700;
 }
 
+#design-title3 {
+    letter-spacing: 0.15em;
+    padding-right: -20px;
+    margin-right: 90px;
+    font-weight: 100;
+    border-bottom: 2px rgba(243, 138, 86, 0.83) solid;
+}
 #design-title2-3 {
     font-weight: 100;
     margin-left: 11px;
 }
-
-#design-title3 {
-    letter-spacing: 0.15em;
-    padding-right: -20px;
-    border-bottom: 2px rgba(243, 138, 86, 0.83) solid;
-    font-weight: 100;
-    padding-bottom: 15px;
-    margin-right: 90px;
+#design-title2-second {
+    margin-top: 30px;
 }
 
 #design-description0 {
@@ -536,23 +537,8 @@ li {
         margin-top: 25px;
     }
     .pure-g {
-        margin-left: -13%;
-        margin-right: -13%;
-    }
-    .design-title {
-        font-size: 2em;
-    }
-    .design-section {
-        margin-bottom: 150px;
-    }
-    #design-title2-3 {
-        margin-top: 28px;
-        margin-left: 0px;
-        display: inline;
-    }
-    #design-title2-2 {
-        margin-top: 33px;
-        display: inline-block;
+        margin-left: -9%;
+        margin-right: -9%;
     }
     .contact-item {
         font-size: 0.9em;
@@ -598,6 +584,23 @@ li {
     .menu-link {
         background: rgba(14, 197, 229, 0.71);
     }
+    .design-title {
+        font-size: 2em;
+    }
+    .design-section {
+        margin-bottom: 150px;
+    }
+    #design-title2-3 {
+        display: inline-block;
+        margin-top: 27px;
+    }
+    #design-title2-2 {
+        margin-top: 33px;
+    }
+    #design-title2-second {
+        margin-top: 5px;
+        
+    }
 }
 
 @media screen and (max-width: 950px),
@@ -629,3 +632,4 @@ li {
 /*lg size */
 
 @media screen and (min-width: 64em) {}
+
