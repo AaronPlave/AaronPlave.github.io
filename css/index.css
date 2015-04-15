@@ -633,10 +633,3 @@ li {
         display: table;
     }
 }
-/*md size */
-
-@media screen and (min-width: 951px) {}
-/*lg size */
-
-@media screen and (min-width: 64em) {}
-
