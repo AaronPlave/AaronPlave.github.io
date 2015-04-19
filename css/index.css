@@ -6,6 +6,10 @@ body {
     /*font-family: 'Montserrat',sans-serif;*/
 }
 
+a {
+    outline: 0;
+}
+
 li {
     list-style: none;
 }
@@ -333,7 +337,7 @@ li {
 #design-title2-1 {
     font-weight: 100;
     margin-left: -11px;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
 #design-title2-2 {
@@ -349,10 +353,12 @@ li {
     font-weight: 100;
     border-bottom: 2px rgba(243, 138, 86, 0.83) solid;
 }
+
 #design-title2-3 {
     font-weight: 100;
     margin-left: 11px;
 }
+
 #design-title2-second {
     margin-top: 30px;
     display: inline;
@@ -483,7 +489,6 @@ li {
     #menu a {
         font-size: 0.75em;
         letter-spacing: 0.14em;
-        
     }
     .content {
         padding-left: 24px;
@@ -552,19 +557,23 @@ li {
     #icon-mail {
         height: 17px;
         padding-top: 5px;
-        padding-left: 31px;}
+        padding-left: 31px;
+    }
     #icon-github {
         height: 23px;
         padding-left: 30px;
-        padding-top: 3px;}
+        padding-top: 3px;
+    }
     #icon-flickr {
         height: 23px;
         padding-left: 30px;
-        padding-top: 3px;}
+        padding-top: 3px;
+    }
     #icon-linkedin {
         height: 21px;
         padding-left: 31px;
-        padding-top: 6px;}
+        padding-top: 6px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -606,7 +615,6 @@ li {
     #design-title2-second {
         margin-top: -1px;
         display: block;
-        
     }
 }
 
