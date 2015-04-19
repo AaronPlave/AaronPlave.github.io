@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         toggleClass(layout, active);
         toggleClass(menu, active);
         toggleClass(menuLink, active);
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     };
 
     // Set theme colors
