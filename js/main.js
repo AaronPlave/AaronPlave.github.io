@@ -233,13 +233,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
         document.onkeydown = function(evt) {
-            console.log(evt.keyCode)
             if ((evt.keyCode == 37 || evt.keyCode == 65) && state.direction != "right") state.direction = "left";
             else if ((evt.keyCode == 38 || evt.keyCode == 87) && state.direction != "down") state.direction = "up";
             else if ((evt.keyCode == 39 || evt.keyCode == 68) && state.direction != "left") state.direction = "right";
             else if ((evt.keyCode == 40 || evt.keyCode == 83) && state.direction != "up") state.direction = "down";
-
-            console.log("Move", state.direction);
         }
 
         // Color grid
@@ -265,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (state.cID != currID) return;
         // If there's no more room, don't add a food cell.
         if (state.snake.length >= state.sqs.length) {
-            console.log("Win?");
             return;
         }
         // Randomly place a target somewhere in the grid
@@ -399,12 +395,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         // display tens digit
         for (i = 0; i < dispNums[tens].length; i++) {
-            console.log(dispNums[tens][i] - 3)
             state.sqs[dispNums[tens][i] - 3].style.background = "gray";
         }
         // display ones digit
         for (i = 0; i < dispNums[ones].length; i++) {
-            console.log(i)
             state.sqs[dispNums[ones][i]].style.background = "black";
         }
     }
