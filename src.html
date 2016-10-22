@@ -216,7 +216,7 @@
     <!-- Circle Generation -->
     <script>
     var props = getClientProps();
-    let largerSize = props.width > props.height ? props.width : props.height;
+    var largerSize = props.width > props.height ? props.width : props.height;
     var circleContainer = document.getElementById("circle-container");
     circleContainer.appendChild(generateCircle(10, largerSize / 4, 0, 0, props.width, props.height, 600));
     circleContainer.appendChild(generateCircle(largerSize / 3, largerSize, 0, 0, props.width, props.height, 300));
