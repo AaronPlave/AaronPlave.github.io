@@ -37,12 +37,13 @@
         font-size: 10rem;
         line-height: 80px;
         line-height: 8rem;
-        padding: 63px 0px 40px;
+        padding: 63px 0px 10px;
         margin: 0;
     }
     
     h3 {
         font-size: 24px;
+        font-size: 2.4rem;
         letter-spacing: -1px;
         letter-spacing: -0.1rem;
         line-height: 24px;
@@ -59,6 +60,7 @@
     }
     
     .circle {
+        mix-blend-mode: multiply;
         width: 0px;
         height: 0px;
         z-index: -1;
@@ -94,12 +96,7 @@
     }
     
     #circle-container {
-        /*position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 120%;
-        overflow: hidden;*/
+        z-index: -1;
         position: fixed;
         top: 0px;
         left: 0px;
@@ -160,6 +157,12 @@
             transform: scale(1) translate3d(0, 0, 0);
         }
     }
+    
+    @media (max-width: 374px) {
+        html {
+            font-size: 9px;
+        }
+    }
     </style>
 </head>
 
@@ -218,8 +221,8 @@
     var props = getClientProps();
     var largerSize = props.width > props.height ? props.width : props.height;
     var circleContainer = document.getElementById("circle-container");
-    circleContainer.appendChild(generateCircle(10, largerSize / 4, 0, 0, props.width, props.height, 600));
-    circleContainer.appendChild(generateCircle(largerSize / 3, largerSize, 0, 0, props.width, props.height, 300));
+    circleContainer.appendChild(generateCircle(10, largerSize / 4, 0, 0, props.width / 2, props.height / 2, 600));
+    circleContainer.appendChild(generateCircle(largerSize / 3, largerSize, 0, 0, props.width / 2, props.height / 2, 300));
 
     function generateCircle(minRadius, maxRadius, xMin, yMin, xMax, yMax, delay) {
         var circle = document.createElement("div");
@@ -228,7 +231,6 @@
         circle.style.width = size;
         circle.style.animationDelay = delay + "ms";
         circle.style.webkitAnimationDelay = delay + "ms";
-        // circle.style.webkitAnimationDelay = "4s";
         circle.style.height = size;
         circle.style.background = getRandomColor(0, getRandomInt(50, 200), getRandomArbitrary(0.1, 0.4));
         circle.style.left = getRandomInt(xMin, xMax) + "px";
