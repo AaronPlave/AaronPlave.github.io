@@ -216,16 +216,19 @@
     <!-- Circle Generation -->
     <script>
     var props = getClientProps();
+    let largerSize = props.width > props.height ? props.width : props.height;
     var circleContainer = document.getElementById("circle-container");
-    circleContainer.appendChild(generateCircle(10, props.width / 4, 0, 0, props.width, props.height, 1100));
-    circleContainer.appendChild(generateCircle(props.width / 4, props.width, 0, 0, props.width, props.height, 800));
+    circleContainer.appendChild(generateCircle(10, largerSize / 4, 0, 0, props.width, props.height, 600));
+    circleContainer.appendChild(generateCircle(largerSize / 3, largerSize, 0, 0, props.width, props.height, 300));
 
     function generateCircle(minRadius, maxRadius, xMin, yMin, xMax, yMax, delay) {
         var circle = document.createElement("div");
-        circle.className = "circle"
         var size = getRandomInt(minRadius, maxRadius) + "px";
+        circle.className = "circle"
         circle.style.width = size;
         circle.style.animationDelay = delay + "ms";
+        circle.style.webkitAnimationDelay = delay + "ms";
+        // circle.style.webkitAnimationDelay = "4s";
         circle.style.height = size;
         circle.style.background = getRandomColor(0, getRandomInt(50, 200), getRandomArbitrary(0.1, 0.4));
         circle.style.left = getRandomInt(xMin, xMax) + "px";
