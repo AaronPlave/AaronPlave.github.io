@@ -20,7 +20,6 @@
     body {
         font-smoothing: antialiased;
         font-family: 'Helvetica Neue', 'Helvetica', 'Arial', "Segoe UI", sans-serif;
-        /*overflow: hidden;*/
         margin: 0px;
         padding-bottom: 0px;
     }
@@ -32,8 +31,11 @@
     
     h1 {
         font-weight: bold;
+        letter-spacing: -7px;
         letter-spacing: -0.7rem;
+        font-size: 100px;
         font-size: 10rem;
+        line-height: 80px;
         line-height: 8rem;
         padding: 63px 0px 40px;
         margin: 0;
@@ -41,7 +43,9 @@
     
     h3 {
         font-size: 24px;
+        letter-spacing: -1px;
         letter-spacing: -0.1rem;
+        line-height: 24px;
         line-height: 2.4rem;
     }
     
@@ -61,12 +65,12 @@
         border-radius: 50%;
         position: absolute;
         opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         animation-name: bounceIn;
         animation-duration: 300ms;
         animation-delay: 300ms;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
-
         -webkit-animation-name: bounceIn;
         -webkit-animation-duration: 300ms;
         -webkit-animation-delay: 300ms;
@@ -106,37 +110,53 @@
     @-webkit-keyframes bounceIn {
         0% {
             opacity: 0;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            -webkit-transform: scale(0.3) translate3d(0, 0, 0);
             transform: scale(0.3) translate3d(0, 0, 0);
         }
         50% {
             opacity: 0.9;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+            -webkit-transform: scale(0.7);
             transform: scale(0.7);
         }
         70% {
             opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            -webkit-transform: scale(1.1);
             transform: scale(1.1);
         }
         100% {
             opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            -webkit-transform: scale(1) translate3d(0, 0, 0);
             transform: scale(1) translate3d(0, 0, 0);
         }
     }
-
+    
     @keyframes bounceIn {
         0% {
             opacity: 0;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            -webkit-transform: scale(0.3) translate3d(0, 0, 0);
             transform: scale(0.3) translate3d(0, 0, 0);
         }
         50% {
             opacity: 0.9;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+            -webkit-transform: scale(0.7);
             transform: scale(0.7);
         }
         70% {
             opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            -webkit-transform: scale(1.1);
             transform: scale(1.1);
         }
         100% {
             opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            -webkit-transform: scale(1) translate3d(0, 0, 0);
             transform: scale(1) translate3d(0, 0, 0);
         }
     }
