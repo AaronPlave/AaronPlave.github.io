@@ -168,10 +168,10 @@
             font-size: 9px;
         }
     }
-    #info {
+    /*#info {
         position: absolute;
         top: 0px;
-    }
+    }*/
     </style>
 </head>
 
@@ -280,15 +280,8 @@
         circle.style.animationName = "_";
         circle.style.webkitAnimationName = "_";
         circle.style.opacity = 1;
-        // circle.style.transform = "perspective(500px) rotateY(" + 360 * x + "deg)";
-
-        // var circleCenterX = (parseFloat(circle.style.left.split("px")[0]) +
-        //     parseFloat(circle.style.width.split("px")[0]) / 2) / props.width;
-        // var circleCenterY = (parseFloat(circle.style.top.split("px")[0]) +
-        //     parseFloat(circle.style.height.split("px")[0]) / 2) / props.height;
 
         var circleMass = circle.style.width.split("px")[0] / 600;
-
         var circleCenterX = 0.5;
         var circleCenterY = 0.5;
         var translateX = (circleCenterX - x) * 5 / circleMass;
@@ -305,12 +298,15 @@
             "translateZ(0)";
     }
 
-    window.addEventListener('deviceorientation', handleOrientation);
+    setTimeout(function() {
+        window.addEventListener('deviceorientation', handleOrientation);
+        window.addEventListener('mousemove', handleMouseMove);
+    }, 1000);
 
     function handleOrientation(event) {
         // This represents a front to back motion of the device.
         var x = event.beta; // In degree in the range [-180,180]
-        
+
         // This represents a left to right motion of the device.
         var y = event.gamma; // In degree in the range [-90,90]
 
@@ -346,49 +342,15 @@
             orientCircle(circle1, yPercent, xPercent);
             orientCircle(circle2, yPercent, xPercent);
         }
-        console.log(x,y, xPercent, yPercent);
-        document.getElementById("info").innerHTML = Math.round(x) + " " + Math.round(y) + " " + Math.round(xPercent) + " " + Math.round(yPercent);
-
     }
 
-    window.onmousemove = function(event) {
+    function handleMouseMove(event) {
         var x = event.x / props.width;
         var y = event.y / props.height;
         orientCircle(circle1, x, y);
         orientCircle(circle2, x, y);
-
-
-        // var circle = circle1;
-        // circle.style.animationName = "sdfsd";
-        // circle.style.opacity = 1;
-        // // circle.style.transform = "perspective(500px) rotateY(" + 360 * x + "deg)";
-
-        // var circleCenterX = (parseFloat(circle.style.left.split("px")[0]) + 
-        //             parseFloat(circle.style.width.split("px")[0]) / 2) / props.width;
-        // var circleCenterY = (parseFloat(circle.style.top.split("px")[0]) + 
-        //             parseFloat(circle.style.height.split("px")[0]) / 2) / props.height;
-        // var perspective = 600;
-        // var perspectiveOrigin = "100% 100%";
-        // var translateX = (circleCenterX - x) * 25;
-        // var translateY = (circleCenterY - y) * 25;
-        // // var translateZ = x * 125;
-        // var skewX = (circleCenterX - x) * 5;
-        // var skewY = (circleCenterY - y) * 5;
-        // var rotateX = (circleCenterX - y) * 90;
-        // var rotateY = (circleCenterY - x) * 90;
-        // // var blur
-
-        // circle.style.webkitPerspectiveOrigin = perspectiveOrigin;
-        // circle.style.webkitTransform =
-        //     "perspective(" + perspective + "px) " +
-        //     "translateX(" + translateX + "px) " +
-        //     "translateY(" + translateY + "px) " +
-        //     // "translateZ("+translateZ+"px) ";
-        //     "skewX(" + skewX + "deg) " +
-        //     "skewY(" + skewY + "deg) " + 
-        //     "rotateX(" + rotateX + "deg) " +
-        //     "rotateY(" + rotateY + "deg)";
     }
+    
     </script>
     <!-- Google Analytics -->
     <script>
