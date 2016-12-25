@@ -83,6 +83,11 @@
         -ms-transform: translateZ(0);
         -o-transform: translateZ(0);
         transform: translateZ(0);
+        transition: transform 0.2s;
+        transition-timing-function: ease-out;
+        -webkit-transition: -webkit-transform 0.2s;
+        -webkit-transition-timing-function: ease-out;
+
     }
     
     .contact {
@@ -350,7 +355,7 @@
         orientCircle(circle1, x, y);
         orientCircle(circle2, x, y);
     }
-    
+
     </script>
     <!-- Google Analytics -->
     <script>
