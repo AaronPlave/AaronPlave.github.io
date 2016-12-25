@@ -322,10 +322,11 @@
 
         // 10 is half the size of the ball
         // It center the positioning point to the center of the ball
-        var xPercent = (props.width * (x / 180)) + "px";
-        var yPercent = (props.height * (y / 180)) + "px";
+        var xPercent = x / 180;
+        var yPercent = y / 180;
         orientCircle(circle1, xPercent, yPercent);
         orientCircle(circle2, xPercent, yPercent);
+        console.log(x,y, xPercent, yPercent);
     }
 
     window.onmousemove = function(event) {
