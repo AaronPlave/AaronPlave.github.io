@@ -315,15 +315,20 @@
             x = -90
         };
 
+        if (y > 90) {
+            y = 90
+        };
+        if (y < -90) {
+            y = -90
+        };
+
         // To make computation easier we shift the range of 
         // x and y to [0,180]
         x += 90;
         y += 90;
 
-        // 10 is half the size of the ball
-        // It center the positioning point to the center of the ball
-        var xPercent = y / 180;
-        var yPercent = x / 180;
+        var xPercent = x / 180;
+        var yPercent = y / 180;
         orientCircle(circle1, xPercent, yPercent);
         orientCircle(circle2, xPercent, yPercent);
         console.log(x,y, xPercent, yPercent);
