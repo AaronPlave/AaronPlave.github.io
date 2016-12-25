@@ -329,8 +329,15 @@
 
         var xPercent = y / 180;
         var yPercent = x / 180;
-        orientCircle(circle1, xPercent, yPercent);
-        orientCircle(circle2, xPercent, yPercent);
+
+        // Cheap unreliable way of detecting and handling device orientation. Won't affect desktop browsers that support event since AFAIK don't give real data for the event.
+        if (props.height > props.width) {
+            orientCircle(circle1, xPercent, yPercent);
+            orientCircle(circle2, xPercent, yPercent);
+        } else {
+            orientCircle(circle1, yPercent, xPercent);
+            orientCircle(circle2, yPercent, xPercent);
+        }
         console.log(x,y, xPercent, yPercent);
     }
 
