@@ -60,7 +60,6 @@
     }
     
     .circle {
-        mix-blend-mode: multiply;
         width: 0px;
         height: 0px;
         z-index: -1;
@@ -83,11 +82,11 @@
         -ms-transform: translateZ(0);
         -o-transform: translateZ(0);
         transform: translateZ(0);
+        will-change: transform;
         transition: transform 0.2s;
         transition-timing-function: ease-out;
         -webkit-transition: -webkit-transform 0.2s;
         -webkit-transition-timing-function: ease-out;
-
     }
     
     .contact {
@@ -233,13 +232,19 @@
     <div id="info"></div>
     <!-- Circle Generation -->
     <script>
-    var props = getClientProps();
-    var largerSize = props.width > props.height ? props.width : props.height;
-    var circleContainer = document.getElementById("circle-container");
-    var circle1 = generateCircle(10, largerSize / 4, 0, 0, props.width / 2, props.height / 2, 600, "circle1");
-    var circle2 = generateCircle(largerSize / 3, largerSize, 0, 0, props.width / 2, props.height / 2, 300, "circle2");
-    circleContainer.appendChild(circle1);
-    circleContainer.appendChild(circle2);
+    var props;
+
+    function init() {
+        props = getClientProps();
+        var largerSize = props.width > props.height ? props.width : props.height;
+        var circleContainer = document.getElementById("circle-container");
+        var circle1 = generateCircle(10, largerSize / 4, 0, 0, props.width / 2, props.height / 2, 600, "circle1");
+        var circle2 = generateCircle(largerSize / 3, largerSize, 0, 0, props.width / 2, props.height / 2, 300, "circle2");
+        circleContainer.appendChild(circle1);
+        circleContainer.appendChild(circle2);
+    }
+    requestAnimationFrame(init)
+    
 
     function generateCircle(minRadius, maxRadius, xMin, yMin, xMax, yMax, delay, id) {
         var circle = document.createElement("div");
@@ -355,7 +360,6 @@
         orientCircle(circle1, x, y);
         orientCircle(circle2, x, y);
     }
-
     </script>
     <!-- Google Analytics -->
     <script>
