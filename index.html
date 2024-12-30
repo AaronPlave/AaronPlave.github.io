@@ -306,6 +306,7 @@
       let props;
       let initialX = -1;
       let initialY = -1;
+      let initialOrientation = true;
 
       function init() {
         props = getClientProps();
@@ -406,8 +407,8 @@
       }
 
       function orientCircle(circle, x, y) {
-        const adjustedX = initialX > -1 ? initialX - x : x;
-        const adjustedY = initialY > -1 ? initialY - y : y;
+        const adjustedX = initialX > -1 ? initialX - x : 0.5 - x;
+        const adjustedY = initialY > -1 ? initialY - y : 0.5 - y;
 
         circle.style.animationName = "_";
         circle.style.webkitAnimationName = "_";
@@ -418,10 +419,6 @@
         const circleCenterY = initialX ?? 0;
         const translateX = (adjustedX * 5) / circleMass;
         const translateY = (adjustedY * 5) / circleMass;
-        console.log("initialX :>> ", initialX);
-        console.log("circleCenterX :>> ", circleCenterX);
-        console.log("translateX :>> ", translateX);
-        console.log("adjustedX :>> ", adjustedX);
 
         circle.style.webkitTransform =
           "translateX(" +
@@ -444,10 +441,16 @@
 
       setTimeout(function () {
         window.addEventListener("mousemove", handleMouseMove);
-        //   window.addEventListener("deviceorientation", handleOrientation);
+        window.addEventListener("deviceorientation", handleOrientation);
       }, 1000);
 
       function handleOrientation(event) {
+        // ignore initial orientation event
+        if (initialOrientation) {
+          initialOrientation = false;
+          return;
+        }
+
         // This represents a front to back motion of the device.
         let x = event.beta; // In degree in the range [-180,180]
 
@@ -480,11 +483,11 @@
 
         // Cheap unreliable way of detecting and handling device orientation. Won't affect desktop browsers that support event since AFAIK don't give real data for the event.
         if (props.height > props.width) {
-          orientCircle(circle1, xPercent, yPercent);
-          orientCircle(circle2, xPercent, yPercent);
+          orientCircle(circle1, xPercent, yPercent - 0.5);
+          orientCircle(circle2, xPercent, yPercent - 0.5);
         } else {
-          orientCircle(circle1, yPercent, xPercent);
-          orientCircle(circle2, yPercent, xPercent);
+          orientCircle(circle1, yPercent - 0.5, xPercent);
+          orientCircle(circle2, yPercent - 0.5, xPercent);
         }
       }
 
