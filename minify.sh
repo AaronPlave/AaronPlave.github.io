@@ -1,1 +1,0 @@
-html-minifier --collapse-boolean-attributes --collapse-whitespace --decode-entities --minify-css=true --minify-js=true --process-conditional-comments --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-script-type-attributes --remove-optional-tags --remove-style-link-type-attributes --use-short-doctype --trim-custom-fragments src.html -o index.html
